@@ -118,6 +118,8 @@
             this.tabPageVideo = new System.Windows.Forms.TabPage();
             this.tabPageStill = new System.Windows.Forms.TabPage();
             this.newExposureButton = new System.Windows.Forms.Button();
+            this.dataGridViewVideo = new System.Windows.Forms.DataGridView();
+            this.dataGridViewStills = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -153,6 +155,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.videoNextFileIndex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.videoIndexLength)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabPageVideo.SuspendLayout();
+            this.tabPageStill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVideo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStills)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -182,14 +188,14 @@
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
             this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
-            this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
+            this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectToolStripMenuItem_Click);
             // 
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
             this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
-            this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.openProjectToolStripMenuItem_Click);
+            this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.OpenProjectToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -227,7 +233,7 @@
             this.applySettingsButton.TabIndex = 3;
             this.applySettingsButton.Text = "Apply Settings";
             this.applySettingsButton.UseVisualStyleBackColor = true;
-            this.applySettingsButton.Click += new System.EventHandler(this.applySettingsButton_Click);
+            this.applySettingsButton.Click += new System.EventHandler(this.ApplySettingsButton_Click);
             // 
             // groupBox4
             // 
@@ -323,7 +329,7 @@
             this.stillsBrackeringEnabled.TabIndex = 28;
             this.stillsBrackeringEnabled.Text = "Bracketing / Exposure Compensation";
             this.stillsBrackeringEnabled.UseVisualStyleBackColor = true;
-            this.stillsBrackeringEnabled.CheckedChanged += new System.EventHandler(this.stillsBrackeringEnabled_CheckedChanged);
+            this.stillsBrackeringEnabled.CheckedChanged += new System.EventHandler(this.StillsBrackeringEnabled_CheckedChanged);
             // 
             // stillsShutterSpeed
             // 
@@ -429,7 +435,7 @@
             // 
             this.stillsFilenameIndexLength.Location = new System.Drawing.Point(141, 56);
             this.stillsFilenameIndexLength.Maximum = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -1139,6 +1145,7 @@
             0,
             0,
             0});
+            this.videoShot.ValueChanged += new System.EventHandler(this.VideoShot_ValueChanged);
             // 
             // label6
             // 
@@ -1165,6 +1172,7 @@
             0,
             0,
             0});
+            this.videoScene.ValueChanged += new System.EventHandler(this.VideoScene_ValueChanged);
             // 
             // label5
             // 
@@ -1216,7 +1224,7 @@
             0});
             this.videoIndexLength.Name = "videoIndexLength";
             this.videoIndexLength.Size = new System.Drawing.Size(153, 20);
-            this.videoIndexLength.TabIndex = 5;
+            this.videoIndexLength.TabIndex = 100;
             this.videoIndexLength.Value = new decimal(new int[] {
             1,
             0,
@@ -1241,7 +1249,7 @@
             this.videoUseBroadcast.TabIndex = 3;
             this.videoUseBroadcast.Text = "Use Broadcast camera settings";
             this.videoUseBroadcast.UseVisualStyleBackColor = true;
-            this.videoUseBroadcast.CheckedChanged += new System.EventHandler(this.videoUseBroadcast_CheckedChanged);
+            this.videoUseBroadcast.CheckedChanged += new System.EventHandler(this.VideoUseBroadcast_CheckedChanged);
             // 
             // videoUseSceneShotTake
             // 
@@ -1252,7 +1260,7 @@
             this.videoUseSceneShotTake.TabIndex = 2;
             this.videoUseSceneShotTake.Text = "Use \"Scene - Shot - Take\" filenames";
             this.videoUseSceneShotTake.UseVisualStyleBackColor = true;
-            this.videoUseSceneShotTake.CheckedChanged += new System.EventHandler(this.videoUseSceneShotTake_CheckedChanged);
+            this.videoUseSceneShotTake.CheckedChanged += new System.EventHandler(this.VideoUseSceneShotTake_CheckedChanged);
             // 
             // label2
             // 
@@ -1310,19 +1318,21 @@
             // 
             // tabPageVideo
             // 
+            this.tabPageVideo.Controls.Add(this.dataGridViewVideo);
             this.tabPageVideo.Location = new System.Drawing.Point(4, 22);
             this.tabPageVideo.Name = "tabPageVideo";
             this.tabPageVideo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageVideo.Size = new System.Drawing.Size(976, 510);
+            this.tabPageVideo.Size = new System.Drawing.Size(928, 491);
             this.tabPageVideo.TabIndex = 1;
             this.tabPageVideo.Text = "Video Log";
             this.tabPageVideo.UseVisualStyleBackColor = true;
             // 
             // tabPageStill
             // 
+            this.tabPageStill.Controls.Add(this.dataGridViewStills);
             this.tabPageStill.Location = new System.Drawing.Point(4, 22);
             this.tabPageStill.Name = "tabPageStill";
-            this.tabPageStill.Size = new System.Drawing.Size(976, 510);
+            this.tabPageStill.Size = new System.Drawing.Size(928, 491);
             this.tabPageStill.TabIndex = 2;
             this.tabPageStill.Text = "Still Log";
             this.tabPageStill.UseVisualStyleBackColor = true;
@@ -1334,9 +1344,34 @@
             this.newExposureButton.Name = "newExposureButton";
             this.newExposureButton.Size = new System.Drawing.Size(300, 202);
             this.newExposureButton.TabIndex = 4;
-            this.newExposureButton.Text = "New Exposure (F1)";
+            this.newExposureButton.Text = "NEW EXPOSURE";
             this.newExposureButton.UseVisualStyleBackColor = true;
-            this.newExposureButton.Click += new System.EventHandler(this.newExposureButton_Click);
+            this.newExposureButton.Click += new System.EventHandler(this.NewExposureButton_Click);
+            // 
+            // dataGridViewVideo
+            // 
+            this.dataGridViewVideo.AllowUserToAddRows = false;
+            this.dataGridViewVideo.AllowUserToDeleteRows = false;
+            this.dataGridViewVideo.AllowUserToResizeRows = false;
+            this.dataGridViewVideo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewVideo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVideo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewVideo.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewVideo.Name = "dataGridViewVideo";
+            this.dataGridViewVideo.Size = new System.Drawing.Size(922, 485);
+            this.dataGridViewVideo.TabIndex = 0;
+            // 
+            // dataGridViewStills
+            // 
+            this.dataGridViewStills.AllowUserToAddRows = false;
+            this.dataGridViewStills.AllowUserToDeleteRows = false;
+            this.dataGridViewStills.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewStills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStills.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewStills.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewStills.Name = "dataGridViewStills";
+            this.dataGridViewStills.Size = new System.Drawing.Size(928, 491);
+            this.dataGridViewStills.TabIndex = 0;
             // 
             // Form1
             // 
@@ -1391,6 +1426,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.videoIndexLength)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPageVideo.ResumeLayout(false);
+            this.tabPageStill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVideo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1487,6 +1526,8 @@
         private System.Windows.Forms.ToolStripMenuItem openProjectToolStripMenuItem;
         private System.Windows.Forms.Button applySettingsButton;
         private System.Windows.Forms.Button newExposureButton;
+        private System.Windows.Forms.DataGridView dataGridViewVideo;
+        private System.Windows.Forms.DataGridView dataGridViewStills;
     }
 }
 

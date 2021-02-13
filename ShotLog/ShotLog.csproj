@@ -60,6 +60,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="ProjectData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StillItem.cs" />
+    <Compile Include="VideoItem.cs" />
     <EmbeddedResource Include="ExposurePopup.resx">
       <DependentUpon>ExposurePopup.cs</DependentUpon>
     </EmbeddedResource>

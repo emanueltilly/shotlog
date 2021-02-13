@@ -146,7 +146,7 @@
             this.videoEnabledButton.TabIndex = 8;
             this.videoEnabledButton.Text = "videoEnabledButton";
             this.videoEnabledButton.UseVisualStyleBackColor = true;
-            this.videoEnabledButton.Click += new System.EventHandler(this.videoEnabledButton_Click);
+            this.videoEnabledButton.Click += new System.EventHandler(this.VideoEnabledButton_Click);
             // 
             // stillsEnabledButton
             // 
@@ -157,7 +157,7 @@
             this.stillsEnabledButton.TabIndex = 9;
             this.stillsEnabledButton.Text = "stillsEnabledButton";
             this.stillsEnabledButton.UseVisualStyleBackColor = true;
-            this.stillsEnabledButton.Click += new System.EventHandler(this.stillsEnabledButton_Click);
+            this.stillsEnabledButton.Click += new System.EventHandler(this.StillsEnabledButton_Click);
             // 
             // notesBox5
             // 
@@ -184,7 +184,7 @@
             this.commitShotButton.TabIndex = 12;
             this.commitShotButton.Text = "Commit";
             this.commitShotButton.UseVisualStyleBackColor = true;
-            this.commitShotButton.Click += new System.EventHandler(this.commitShotButton_Click);
+            this.commitShotButton.Click += new System.EventHandler(this.CommitShotButton_Click);
             // 
             // label6
             // 

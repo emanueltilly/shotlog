@@ -14,7 +14,7 @@ namespace ShotLog
     {
         ProjectData data = new ProjectData(); 
 
-        public void setProjectData(ProjectData source)
+        public void SetProjectData(ProjectData source)
         {
             data = source;
         }
@@ -31,7 +31,7 @@ namespace ShotLog
             notesBox3.Text = data.notesField3;
             notesBox4.Text = data.notesField4;
             notesBox5.Text = data.notesField5;
-            updateButtonsText();
+            UpdateButtonsText();
 
             fixtureBox.Text = data.photometricsFixtureType;
             luxBox.Value = data.photometricsLUX;
@@ -43,17 +43,17 @@ namespace ShotLog
 
             groupBox1.Enabled = (data.photometricDataEnabled);
 
-            videoPreview1.Text = data.previewFilename(true, false, 0);
-            stillPreview1.Text = data.previewFilename(false, true, 0);
-            stillPreview2.Text = data.previewFilename(false, true, 1);
-            stillPreview3.Text = data.previewFilename(false, true, 2);
+            videoPreview1.Text = data.GetFilename(true, false, 0);
+            stillPreview1.Text = data.GetFilename(false, true, 0);
+            stillPreview2.Text = data.GetFilename(false, true, 1);
+            stillPreview3.Text = data.GetFilename(false, true, 2);
 
 
 
 
         }
 
-        private void updateButtonsText()
+        private void UpdateButtonsText()
         {
             videoEnabledButton.Text = (data.videoEnabled ? "VIDEO ENABLED" : "VIDEO DISABLED");
             stillsEnabledButton.Text = (data.stillsEnabled ? "STILLS ENABLED" : "STILLS DISABLED");
@@ -64,21 +64,21 @@ namespace ShotLog
             stillPreview3.Visible = (data.stillsEnabled && data.stillsBracketed);
         }
 
-        private void videoEnabledButton_Click(object sender, EventArgs e)
+        private void VideoEnabledButton_Click(object sender, EventArgs e)
         {
             data.videoEnabled = (data.videoEnabled ? false : true);
-            updateButtonsText();
+            UpdateButtonsText();
         }
 
-        private void stillsEnabledButton_Click(object sender, EventArgs e)
+        private void StillsEnabledButton_Click(object sender, EventArgs e)
         {
             data.stillsEnabled = (data.stillsEnabled ? false : true);
-            updateButtonsText();
+            UpdateButtonsText();
         }
 
-        private void commitShotButton_Click(object sender, EventArgs e)
+        private void CommitShotButton_Click(object sender, EventArgs e)
         {
-            bool commitOK = (data.commitToList(
+            bool commitOK = (data.CommitToList(
                 notesBox1.Text,
                 notesBox2.Text,
                 notesBox3.Text,
@@ -92,8 +92,9 @@ namespace ShotLog
                 (int)kelvinBox.Value,
                 (int)criBox.Value,
                 (int)zoomBox.Value,
-                (int)dimmerBox.Value
-                ));
+                (int)dimmerBox.Value,
+                (int)data.stillsShutterspeedBase
+                )) ;
 
             if (commitOK != true)
             {

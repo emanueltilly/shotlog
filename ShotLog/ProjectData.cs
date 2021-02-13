@@ -12,6 +12,10 @@ namespace ShotLog
 {
     public class ProjectData
     {
+        //Lists
+        public List<StillItem> StillsList = new List<StillItem>();
+        public List<VideoItem> VideoList = new List<VideoItem>();
+
         //Project setting values here
 
         //Project wide
@@ -115,12 +119,12 @@ namespace ShotLog
             }
         }
 
-        public string previewFilename(bool video, bool still, int offset)
+        public string GetFilename(bool video, bool still, int offset)
         {
             string filename = "";
             if (still == true && video == false)
             {
-                filename = (stillsPrefix + intToStringWithPadding((stillsNextIndex + offset), stillsIndexLength));
+                filename = (stillsPrefix + IntToStringWithPadding((stillsNextIndex + offset), stillsIndexLength));
                 return filename;
             }
             else if (still == false && video == true)
@@ -132,7 +136,7 @@ namespace ShotLog
 
                 } else
                 {
-                    filename = (videoPrefix + intToStringWithPadding((videoNextIndex + offset), videoIndexLength));
+                    filename = (videoPrefix + IntToStringWithPadding((videoNextIndex + offset), videoIndexLength));
                     return filename;
                 }
             }else
@@ -143,12 +147,12 @@ namespace ShotLog
             
         }
 
-        private string intToStringWithPadding(int number, int length)
+        private string IntToStringWithPadding(int number, int length)
         {
             return (number.ToString("D" + length));
         }
 
-        public bool commitToList(
+        public bool CommitToList(
             string note1,
             string note2,
             string note3,
@@ -162,7 +166,8 @@ namespace ShotLog
             int photoKelvin,
             int photoCRI,
             int photoZoom,
-            int photoDimmer
+            int photoDimmer,
+            int stillShutterspeed
 
             )
         {
@@ -186,13 +191,104 @@ namespace ShotLog
 
             if (videoEnabled)
             {
+                VideoItem newVideo = new VideoItem
+                {
+                    Timestamp = DateTime.Now.ToString("G"),
+                    Filename = GetFilename(true, false, 0),
+
+                    Scene = videoScene,
+                    Shot = videoShot,
+                    Take = videoTake,
+
+                    Notes1 = note1,
+                    Notes2 = note2,
+                    Notes3 = note3,
+                    Notes4 = note4,
+                    Notes5 = note5,
+
+                    Photometrics = photometricDataEnabled,
+                    Fixture = photometricsFixtureType,
+                    Distance = photometricsLUXdistance,
+                    LUX = photometricsLUX,
+                    Kelvin = photometricsKelvin,
+                    CRI = photometricsCRI,
+                    Zoom = photometricsZoom,
+                    Dimmer = photometricDimmer,
+
+                    Camera = videoCameraName,
+                    Format = videoFormat,
+                    Aperture = videoAperture,
+                    Focallength = videoFocalLength,
+                    Whitebalance = videoWhiteBalance,
+                    ISO = videoISO,
+                    Shutterspeed = videoShutterspeed,
+                    MasterBlack = videoStudioMasterBlack,
+                    Tint = videoStudioTint,
+                    Saturation = videoStudioSaturation,
+                    Gain = videoStudioGain,
+
+                    Gain_Red = videoStudioRedGain,
+                    Gain_Green = videoStudioGreenGain,
+                    Gain_Blue = videoStudioBlueGain,
+                    Black_Red = videoStudioRedBlack,
+                    Black_Green = videoStudioGreenBlack,
+                    Black_Blue = videoStudioBlueBlack
+                };
+
+
+
+                VideoList.Add(newVideo);
+
+                //INCREMENT COUNTERS
+                if (videoUseSceneNumbering)
+                {
+                    videoTake++;
+                }
+                else
+                {
+                    videoNextIndex++;
+                }
+                
                 
 
             }
 
             if (stillsEnabled)
             {
-               
+                StillItem newStill = new StillItem
+                {
+                    Timestamp = DateTime.Now.ToString("G"),
+                    Filename = GetFilename(false, true, 0),
+
+                    Notes1 = note1,
+                    Notes2 = note2,
+                    Notes3 = note3,
+                    Notes4 = note4,
+                    Notes5 = note5,
+
+                    Photometrics = photometricDataEnabled,
+                    Fixture = photometricsFixtureType,
+                    Distance = photometricsLUXdistance,
+                    LUX = photometricsLUX,
+                    Kelvin = photometricsKelvin,
+                    CRI = photometricsCRI,
+                    Zoom = photometricsZoom,
+                    Dimmer = photometricDimmer,
+
+                    Camera = stillsCameraName,
+                    ISO = stillsISO,
+                    Aperture = stillsAperture,
+                    Shutterspeed = stillShutterspeed,
+                    Whitebalance = stillsWhiteBalance,
+                    Focallength = stillsFocalLength,
+                    Bracketed = stillsBracketed
+                };
+
+                StillsList.Add(newStill);
+
+                //INCREMENT COUNTERS
+                stillsNextIndex++;
+
             }
 
             //Return OK

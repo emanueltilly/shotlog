@@ -28,13 +28,13 @@ namespace ShotLog
         {
             if (e.KeyCode == Keys.F1)
             {
-                newExposure();
+                NewExposure();
             }
 
         }
 
         //UPDATE GUI FROM DATA OBJECT
-        private void loadGUIfromData()
+        private void LoadGUIfromData()
         {
             this.Text = (data.projectName + " - ShotLog");
             projectName.Text = data.projectName;
@@ -62,7 +62,7 @@ namespace ShotLog
 
             videoNamePrefix.Text = data.videoPrefix;
             videoIndexLength.Value = data.videoIndexLength;
-            videoNextFileIndex.Value = data.videoIndexLength;
+            videoNextFileIndex.Value = data.videoNextIndex;
             videoScene.Value = data.videoScene;
             videoShot.Value = data.videoShot;
             videoTake.Value = data.videoTake;
@@ -90,12 +90,15 @@ namespace ShotLog
             videoBroadcastBlackBlue.Value = data.videoStudioBlueBlack;
 
             //Update enabled
-            updateGUIenabled();
+            UpdateGUIenabled();
+
+            //Update speadsheets
+            ReloadDataGridView();
 
 
         }
 
-        private void saveGUItoData()
+        private void SaveGUItoData()
         {
             //Project
             data.projectName = projectName.Text;
@@ -154,7 +157,7 @@ namespace ShotLog
 
         }
         
-        private void updateGUIenabled()
+        private void UpdateGUIenabled()
         {
             //Video Studio camera mode
             groupBox3.Enabled = videoUseBroadcast.Checked;
@@ -175,9 +178,9 @@ namespace ShotLog
         }
 
         //SAVE & OPEN PROJECT FUNCTIONS
-        private void saveProject()
+        private void SaveProject()
         {
-            saveGUItoData();
+            SaveGUItoData();
 
             SaveFileDialog SaveFileDialog1 = new SaveFileDialog
             {
@@ -193,11 +196,11 @@ namespace ShotLog
                 //SAVE TO FILE
                 data.SaveToFile(SaveFileDialog1.FileName);
 
-                loadGUIfromData();
+                LoadGUIfromData();
             }
         }
 
-        private void openProject()
+        private void OpenProject()
         {
             OpenFileDialog openDialog = new OpenFileDialog
             {
@@ -209,60 +212,86 @@ namespace ShotLog
             {
 
                 data = ProjectData.LoadFromFile(openDialog.FileName);
-                loadGUIfromData();
+                LoadGUIfromData();
 
             }
         }
 
-        private void newExposure()
+        private void NewExposure()
         {
-            saveGUItoData();
-            loadGUIfromData();
+            SaveGUItoData();
+            
             ExposurePopup expoPopup = new ExposurePopup();
-            expoPopup.setProjectData(data); //Send project data to popup
-            var dialogResult = expoPopup.ShowDialog(); //Show popup and wait for popup to close
+            expoPopup.SetProjectData(data); //Send project data to popup
+            expoPopup.ShowDialog(); //Show popup and wait for popup to close
+
+            LoadGUIfromData();
+
         }
 
-        private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ReloadDataGridView()
         {
-            saveProject();
-            loadGUIfromData();
+            //Link list to data grid view VIDEO
+            var source1 = new BindingSource();
+            source1.DataSource = data.VideoList;
+            dataGridViewVideo.DataSource = source1;
+
+            //Link list to data grid view STILLS
+            var source2 = new BindingSource();
+            source2.DataSource = data.StillsList;
+            dataGridViewStills.DataSource = source2;
         }
 
-        private void openProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openProject();
+            SaveProject();
+            LoadGUIfromData();
         }
 
-        private void applySettingsButton_Click(object sender, EventArgs e)
+        private void OpenProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveGUItoData();
-            loadGUIfromData();
+            OpenProject();
+        }
+
+        private void ApplySettingsButton_Click(object sender, EventArgs e)
+        {
+            SaveGUItoData();
+            LoadGUIfromData();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            loadGUIfromData();
+            LoadGUIfromData();
         }
 
-        private void newExposureButton_Click(object sender, EventArgs e)
+        private void NewExposureButton_Click(object sender, EventArgs e)
         {
-            newExposure();
+            NewExposure();
         }
 
-        private void videoUseSceneShotTake_CheckedChanged(object sender, EventArgs e)
+        private void VideoUseSceneShotTake_CheckedChanged(object sender, EventArgs e)
         {
-            updateGUIenabled();
+            UpdateGUIenabled();
         }
 
-        private void videoUseBroadcast_CheckedChanged(object sender, EventArgs e)
+        private void VideoUseBroadcast_CheckedChanged(object sender, EventArgs e)
         {
-            updateGUIenabled();
+            UpdateGUIenabled();
         }
 
-        private void stillsBrackeringEnabled_CheckedChanged(object sender, EventArgs e)
+        private void StillsBrackeringEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            updateGUIenabled();
+            UpdateGUIenabled();
+        }
+
+        private void VideoScene_ValueChanged(object sender, EventArgs e)
+        {
+            videoTake.Value = 1;
+        }
+
+        private void VideoShot_ValueChanged(object sender, EventArgs e)
+        {
+            videoTake.Value = 1;
         }
     }
 }
