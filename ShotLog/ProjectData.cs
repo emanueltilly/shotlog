@@ -36,7 +36,6 @@ namespace ShotLog
         public int videoIndexLength = 4;
         public int videoNextIndex = 1;
 
-        public string videoScenePrefix = "VID_";
         public int videoScene = 1;
         public int videoShot = 1;
         public int videoTake = 1;

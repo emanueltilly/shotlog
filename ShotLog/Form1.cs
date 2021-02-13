@@ -75,6 +75,9 @@ namespace ShotLog
             videoBroadcastBlackGreen.Value = data.videoStudioGreenBlack;
             videoBroadcastBlackBlue.Value = data.videoStudioBlueBlack;
 
+            //Update enabled
+            updateGUIenabled();
+
 
         }
 
@@ -136,6 +139,26 @@ namespace ShotLog
             data.videoStudioBlueBlack = (int)videoBroadcastBlackBlue.Value;
 
         }
+        
+        private void updateGUIenabled()
+        {
+            //Video Studio camera mode
+            groupBox3.Enabled = videoUseBroadcast.Checked;
+            videoISO.Enabled = (videoUseBroadcast.Checked ? false : true);
+            videoShutterspeed.Enabled = (videoUseBroadcast.Checked ? false : true);
+
+            //Scene Shot Take Naming
+            videoScene.Enabled = videoUseSceneShotTake.Checked;
+            videoShot.Enabled = videoUseSceneShotTake.Checked;
+            videoTake.Enabled = videoUseSceneShotTake.Checked;
+
+            videoIndexLength.Enabled = (videoUseSceneShotTake.Checked ? false : true);
+            videoNextFileIndex.Enabled = (videoUseSceneShotTake.Checked ? false : true);
+
+            //Bracketing
+            stillsBracketingOrder.Enabled = stillsBrackeringEnabled.Checked;
+            stillsBrackeringStops.Enabled = stillsBrackeringEnabled.Checked;
+        }
 
         //SAVE & OPEN PROJECT FUNCTIONS
         private void saveProject()
@@ -192,6 +215,31 @@ namespace ShotLog
         {
             saveGUItoData();
             loadGUIfromData();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            loadGUIfromData();
+        }
+
+        private void newExposureButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void videoUseSceneShotTake_CheckedChanged(object sender, EventArgs e)
+        {
+            updateGUIenabled();
+        }
+
+        private void videoUseBroadcast_CheckedChanged(object sender, EventArgs e)
+        {
+            updateGUIenabled();
+        }
+
+        private void stillsBrackeringEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            updateGUIenabled();
         }
     }
 }
