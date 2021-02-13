@@ -115,6 +115,91 @@ namespace ShotLog
             }
         }
 
+        public string previewFilename(bool video, bool still, int offset)
+        {
+            string filename = "";
+            if (still == true && video == false)
+            {
+                filename = (stillsPrefix + intToStringWithPadding((stillsNextIndex + offset), stillsIndexLength));
+                return filename;
+            }
+            else if (still == false && video == true)
+            {
+                if (videoUseSceneNumbering)
+                {
+                    filename = (videoPrefix + "_Scene-" + videoScene + "_Shot-" + videoShot + "_Take-" + videoTake);
+                    return filename;
+
+                } else
+                {
+                    filename = (videoPrefix + intToStringWithPadding((videoNextIndex + offset), videoIndexLength));
+                    return filename;
+                }
+            }else
+            {
+                Console.WriteLine(filename);
+                return "Unknown filename";
+            }
+            
+        }
+
+        private string intToStringWithPadding(int number, int length)
+        {
+            return (number.ToString("D" + length));
+        }
+
+        public bool commitToList(
+            string note1,
+            string note2,
+            string note3,
+            string note4,
+            string note5,
+            bool videoCommit,
+            bool stillsCommit,
+            string photoFixture,
+            int photoLUX,
+            int photoLUXdistance,
+            int photoKelvin,
+            int photoCRI,
+            int photoZoom,
+            int photoDimmer
+
+            )
+        {
+            //Update data
+            videoEnabled = videoCommit;
+            stillsEnabled = stillsCommit;
+
+            notesField1 = note1;
+            notesField2 = note2;
+            notesField3 = note3;
+            notesField4 = note4;
+            notesField5 = note5;
+
+            photometricsFixtureType = photoFixture;
+            photometricsLUX = photoLUX;
+            photometricsLUXdistance = photoLUXdistance;
+            photometricsKelvin = photoKelvin;
+            photometricsCRI = photoCRI;
+            photometricsZoom = photoZoom;
+            photometricDimmer = photoDimmer;
+
+            if (videoEnabled)
+            {
+                
+
+            }
+
+            if (stillsEnabled)
+            {
+               
+            }
+
+            //Return OK
+            return true;
+
+        }
+
 
 
 

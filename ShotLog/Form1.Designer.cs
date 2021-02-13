@@ -428,6 +428,11 @@
             // stillsFilenameIndexLength
             // 
             this.stillsFilenameIndexLength.Location = new System.Drawing.Point(141, 56);
+            this.stillsFilenameIndexLength.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.stillsFilenameIndexLength.Minimum = new decimal(new int[] {
             1,
             0,
@@ -1199,6 +1204,11 @@
             // videoIndexLength
             // 
             this.videoIndexLength.Location = new System.Drawing.Point(141, 97);
+            this.videoIndexLength.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
             this.videoIndexLength.Minimum = new decimal(new int[] {
             1,
             0,
@@ -1324,7 +1334,7 @@
             this.newExposureButton.Name = "newExposureButton";
             this.newExposureButton.Size = new System.Drawing.Size(300, 202);
             this.newExposureButton.TabIndex = 4;
-            this.newExposureButton.Text = "New Exposure";
+            this.newExposureButton.Text = "New Exposure (F1)";
             this.newExposureButton.UseVisualStyleBackColor = true;
             this.newExposureButton.Click += new System.EventHandler(this.newExposureButton_Click);
             // 
@@ -1335,8 +1345,10 @@
             this.ClientSize = new System.Drawing.Size(936, 542);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip1);
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(952, 581);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShotLog";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);

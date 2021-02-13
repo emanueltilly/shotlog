@@ -14,9 +14,23 @@ namespace ShotLog
     {
         ProjectData data = new ProjectData();
 
+        
+
         public Form1()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(KeyEvent);
+
+        }
+
+        private void KeyEvent(object sender, KeyEventArgs e) //Keyup Event 
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                newExposure();
+            }
+
         }
 
         //UPDATE GUI FROM DATA OBJECT
@@ -200,6 +214,15 @@ namespace ShotLog
             }
         }
 
+        private void newExposure()
+        {
+            saveGUItoData();
+            loadGUIfromData();
+            ExposurePopup expoPopup = new ExposurePopup();
+            expoPopup.setProjectData(data); //Send project data to popup
+            var dialogResult = expoPopup.ShowDialog(); //Show popup and wait for popup to close
+        }
+
         private void saveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             saveProject();
@@ -224,7 +247,7 @@ namespace ShotLog
 
         private void newExposureButton_Click(object sender, EventArgs e)
         {
-
+            newExposure();
         }
 
         private void videoUseSceneShotTake_CheckedChanged(object sender, EventArgs e)
