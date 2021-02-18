@@ -13,7 +13,7 @@ namespace ShotLog
     public partial class Form1 : Form
     {
         ProjectData data = new ProjectData();
-        string lastSave = "Never";
+        
         
 
         public Form1()
@@ -372,48 +372,48 @@ namespace ShotLog
             videoTake.Value = 1;
         }
 
-        private void exportVideoLogButton_Click(object sender, EventArgs e)
+        private void ExportVideoLogButton_Click(object sender, EventArgs e)
         {
-            ExportCSV.exportVideo(data.VideoList);
+            ExportCSV.ExportVideo(data.VideoList);
         }
 
-        private void exportStillsLogButton_Click(object sender, EventArgs e)
+        private void ExportStillsLogButton_Click(object sender, EventArgs e)
         {
-            ExportCSV.exportStills(data.StillsList);
+            ExportCSV.ExportStills(data.StillsList);
         }
 
-        private void enableAutoSaveButton_Click(object sender, EventArgs e)
+        private void EnableAutoSaveButton_Click(object sender, EventArgs e)
         {
             data.autoSave = true;
         }
 
-        private void disableAutoSaveButton_Click(object sender, EventArgs e)
+        private void DisableAutoSaveButton_Click(object sender, EventArgs e)
         {
             data.autoSave = false;
         }
 
-        private void autosave1m_Click(object sender, EventArgs e)
+        private void Autosave1m_Click(object sender, EventArgs e)
         {
-            updateAutosaveTimer(1);
+            UpdateAutosaveTimer(1);
 
         }
 
-        private void autosave5m_Click(object sender, EventArgs e)
+        private void Autosave5m_Click(object sender, EventArgs e)
         {
-            updateAutosaveTimer(5);
+            UpdateAutosaveTimer(5);
         }
 
-        private void autosave10m_Click(object sender, EventArgs e)
+        private void Autosave10m_Click(object sender, EventArgs e)
         {
-            updateAutosaveTimer(10);
+            UpdateAutosaveTimer(10);
         }
 
-        private void autosave30m_Click(object sender, EventArgs e)
+        private void Autosave30m_Click(object sender, EventArgs e)
         {
-            updateAutosaveTimer(30);
+            UpdateAutosaveTimer(30);
         }
 
-        private void updateAutosaveTimer(int durationMin)
+        private void UpdateAutosaveTimer(int durationMin)
         {
             data.autoSaveDuration = (durationMin * 60000);
             data.autoSave = true;
@@ -421,7 +421,7 @@ namespace ShotLog
             autosaveTimer.Start();
         }
 
-        private void autosaveTimer_Tick(object sender, EventArgs e)
+        private void AutosaveTimer_Tick(object sender, EventArgs e)
         {
             if (data.autoSave == true)
             {
@@ -436,7 +436,7 @@ namespace ShotLog
             
         }
 
-        private void autosaveChecker_Tick(object sender, EventArgs e)
+        private void AutosaveChecker_Tick(object sender, EventArgs e)
         {
 
             if (data.autoSave == true && data.savePath != "" && autosaveTimer.Enabled == true)

@@ -235,14 +235,14 @@
             this.exportVideoLogButton.Name = "exportVideoLogButton";
             this.exportVideoLogButton.Size = new System.Drawing.Size(164, 22);
             this.exportVideoLogButton.Text = "Export Video Log";
-            this.exportVideoLogButton.Click += new System.EventHandler(this.exportVideoLogButton_Click);
+            this.exportVideoLogButton.Click += new System.EventHandler(this.ExportVideoLogButton_Click);
             // 
             // exportStillsLogButton
             // 
             this.exportStillsLogButton.Name = "exportStillsLogButton";
             this.exportStillsLogButton.Size = new System.Drawing.Size(164, 22);
             this.exportStillsLogButton.Text = "Export Still Log";
-            this.exportStillsLogButton.Click += new System.EventHandler(this.exportStillsLogButton_Click);
+            this.exportStillsLogButton.Click += new System.EventHandler(this.ExportStillsLogButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -268,14 +268,14 @@
             this.enableAutoSaveButton.Name = "enableAutoSaveButton";
             this.enableAutoSaveButton.Size = new System.Drawing.Size(185, 22);
             this.enableAutoSaveButton.Text = "Enable AutoSave";
-            this.enableAutoSaveButton.Click += new System.EventHandler(this.enableAutoSaveButton_Click);
+            this.enableAutoSaveButton.Click += new System.EventHandler(this.EnableAutoSaveButton_Click);
             // 
             // disableAutoSaveButton
             // 
             this.disableAutoSaveButton.Name = "disableAutoSaveButton";
             this.disableAutoSaveButton.Size = new System.Drawing.Size(185, 22);
             this.disableAutoSaveButton.Text = "Disable AutoSave";
-            this.disableAutoSaveButton.Click += new System.EventHandler(this.disableAutoSaveButton_Click);
+            this.disableAutoSaveButton.Click += new System.EventHandler(this.DisableAutoSaveButton_Click);
             // 
             // toolStripSeparator4
             // 
@@ -287,28 +287,28 @@
             this.autosave1m.Name = "autosave1m";
             this.autosave1m.Size = new System.Drawing.Size(185, 22);
             this.autosave1m.Text = "AutoSave 1 minute";
-            this.autosave1m.Click += new System.EventHandler(this.autosave1m_Click);
+            this.autosave1m.Click += new System.EventHandler(this.Autosave1m_Click);
             // 
             // autosave5m
             // 
             this.autosave5m.Name = "autosave5m";
             this.autosave5m.Size = new System.Drawing.Size(185, 22);
             this.autosave5m.Text = "AutoSave 5 minutes";
-            this.autosave5m.Click += new System.EventHandler(this.autosave5m_Click);
+            this.autosave5m.Click += new System.EventHandler(this.Autosave5m_Click);
             // 
             // autosave10m
             // 
             this.autosave10m.Name = "autosave10m";
             this.autosave10m.Size = new System.Drawing.Size(185, 22);
             this.autosave10m.Text = "AutoSave 10 minutes";
-            this.autosave10m.Click += new System.EventHandler(this.autosave10m_Click);
+            this.autosave10m.Click += new System.EventHandler(this.Autosave10m_Click);
             // 
             // autosave30m
             // 
             this.autosave30m.Name = "autosave30m";
             this.autosave30m.Size = new System.Drawing.Size(185, 22);
             this.autosave30m.Text = "AutoSave 30 minutes";
-            this.autosave30m.Click += new System.EventHandler(this.autosave30m_Click);
+            this.autosave30m.Click += new System.EventHandler(this.Autosave30m_Click);
             // 
             // toolStripSeparator3
             // 
@@ -1502,7 +1502,7 @@
             // 
             this.autosaveTimer.Enabled = true;
             this.autosaveTimer.Interval = 300000;
-            this.autosaveTimer.Tick += new System.EventHandler(this.autosaveTimer_Tick);
+            this.autosaveTimer.Tick += new System.EventHandler(this.AutosaveTimer_Tick);
             // 
             // toolStripSeparator5
             // 
@@ -1520,7 +1520,7 @@
             // 
             this.autosaveChecker.Enabled = true;
             this.autosaveChecker.Interval = 1000;
-            this.autosaveChecker.Tick += new System.EventHandler(this.autosaveChecker_Tick);
+            this.autosaveChecker.Tick += new System.EventHandler(this.AutosaveChecker_Tick);
             // 
             // Form1
             // 

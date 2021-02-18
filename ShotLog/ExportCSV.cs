@@ -12,12 +12,14 @@ namespace ShotLog
 {
     class ExportCSV
     {
-        public static void exportVideo(List<VideoItem> source)
+        public static void ExportVideo(List<VideoItem> source)
         {
 
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "CSV File|*.csv";
-            saveFileDialog1.Title = "Export Video Log";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = "CSV File|*.csv",
+                Title = "Export Video Log"
+            };
             saveFileDialog1.ShowDialog();
 
             // If the file name is not an empty string open it for saving.
@@ -36,12 +38,14 @@ namespace ShotLog
         }
 
 
-        public static void exportStills(List<StillItem> source)
+        public static void ExportStills(List<StillItem> source)
         {
 
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.Filter = "CSV File|*.csv";
-            saveFileDialog1.Title = "Export Stills Log";
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = "CSV File|*.csv",
+                Title = "Export Stills Log"
+            };
             saveFileDialog1.ShowDialog();
 
             // If the file name is not an empty string open it for saving.
