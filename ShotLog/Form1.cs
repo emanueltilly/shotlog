@@ -177,6 +177,8 @@ namespace ShotLog
             stillsBrackeringStops.Enabled = stillsBrackeringEnabled.Checked;
         }
 
+
+
         //SAVE & OPEN PROJECT FUNCTIONS
         private void SaveProject()
         {
@@ -240,6 +242,75 @@ namespace ShotLog
             var source2 = new BindingSource();
             source2.DataSource = data.StillsList;
             dataGridViewStills.DataSource = source2;
+
+            //Colors
+            SetDatagridviewColors();
+        }
+
+        private void SetDatagridviewColors()
+        {
+            //VIDEO
+            dataGridViewVideo.Columns["ExposureID"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+            dataGridViewVideo.Columns["Timestamp"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+            dataGridViewVideo.Columns["Filename"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+
+            dataGridViewVideo.Columns["Scene"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 191, 179);
+            dataGridViewVideo.Columns["Shot"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 191, 179);
+            dataGridViewVideo.Columns["Take"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 191, 179);
+
+            dataGridViewVideo.Columns["Photometrics"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["Fixture"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["Distance"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["LUX"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["Kelvin"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["CRI"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["Zoom"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewVideo.Columns["Dimmer"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+
+            dataGridViewVideo.Columns["Camera"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["Format"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["Aperture"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["Focallength"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["Whitebalance"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["ISO"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewVideo.Columns["Shutterspeed"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+
+            dataGridViewVideo.Columns["MasterBlack"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Tint"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Saturation"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Gain"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Filter"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Gain_Red"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Gain_Green"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Gain_Blue"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Black_Red"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Black_Green"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewVideo.Columns["Black_Blue"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+
+            //STILLS
+            dataGridViewStills.Columns["ExposureID"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+            dataGridViewStills.Columns["Timestamp"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+            dataGridViewStills.Columns["Filename"].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255, 179);
+
+            dataGridViewStills.Columns["Photometrics"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["Fixture"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["Distance"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["LUX"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["Kelvin"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["CRI"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["Zoom"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+            dataGridViewStills.Columns["Dimmer"].DefaultCellStyle.BackColor = Color.FromArgb(255, 230, 179, 255);
+
+            dataGridViewStills.Columns["Camera"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewStills.Columns["Aperture"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewStills.Columns["Focallength"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewStills.Columns["Whitebalance"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewStills.Columns["ISO"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+            dataGridViewStills.Columns["Shutterspeed"].DefaultCellStyle.BackColor = Color.FromArgb(255, 179, 255, 255);
+
+            dataGridViewStills.Columns["Bracketed"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+            dataGridViewStills.Columns["Exposure"].DefaultCellStyle.BackColor = Color.FromArgb(255, 191, 255, 179);
+
         }
 
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
