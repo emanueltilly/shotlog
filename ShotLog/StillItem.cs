@@ -13,6 +13,7 @@ namespace ShotLog
     public class StillItem
     {
         //Timestamp
+        public string ExposureID { get; set; } = "";
         public string Timestamp { get; set; } = "";
 
         //Stills 1
@@ -50,6 +51,7 @@ namespace ShotLog
         public int Focallength { get; set; } = 0;
 
         public bool Bracketed { get; set; } = false;
+        public string Exposure { get; set; } = "";
 
 
     }

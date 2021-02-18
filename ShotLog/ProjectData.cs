@@ -19,6 +19,7 @@ namespace ShotLog
         //Project setting values here
 
         //Project wide
+        public int exposureIdCounter = 0;
         public string projectName = "Blank Project";
 
         public bool videoEnabled = false;
@@ -189,10 +190,14 @@ namespace ShotLog
             photometricsZoom = photoZoom;
             photometricDimmer = photoDimmer;
 
+            //Get global exposure ID
+            string expID = GetExposureID();
+
             if (videoEnabled)
             {
                 VideoItem newVideo = new VideoItem
                 {
+                    ExposureID = expID,
                     Timestamp = DateTime.Now.ToString("G"),
                     Filename = GetFilename(true, false, 0),
 
@@ -255,39 +260,206 @@ namespace ShotLog
 
             if (stillsEnabled)
             {
-                StillItem newStill = new StillItem
+                if (stillsBracketed == false) {
+                    Console.WriteLine("Appending single exposure...");
+                    StillItem newStill = new StillItem
+                    {
+                        ExposureID = expID,
+                        Timestamp = DateTime.Now.ToString("G"),
+                        Filename = GetFilename(false, true, 0),
+
+                        Notes1 = note1,
+                        Notes2 = note2,
+                        Notes3 = note3,
+                        Notes4 = note4,
+                        Notes5 = note5,
+
+                        Photometrics = photometricDataEnabled,
+                        Fixture = photometricsFixtureType,
+                        Distance = photometricsLUXdistance,
+                        LUX = photometricsLUX,
+                        Kelvin = photometricsKelvin,
+                        CRI = photometricsCRI,
+                        Zoom = photometricsZoom,
+                        Dimmer = photometricDimmer,
+
+                        Camera = stillsCameraName,
+                        ISO = stillsISO,
+                        Aperture = stillsAperture,
+                        Shutterspeed = stillsShutterspeedBase,
+                        Whitebalance = stillsWhiteBalance,
+                        Focallength = stillsFocalLength,
+                        Bracketed = stillsBracketed
+                    };
+
+                    StillsList.Add(newStill);
+
+                    //INCREMENT COUNTERS
+                    stillsNextIndex++;
+                } else
                 {
-                    Timestamp = DateTime.Now.ToString("G"),
-                    Filename = GetFilename(false, true, 0),
+                    Console.WriteLine("Appending three bracketed exposures...");
+                    string[] exposureNames = new string[3];
+                    int[] exposureSteps = new int[3];
 
-                    Notes1 = note1,
-                    Notes2 = note2,
-                    Notes3 = note3,
-                    Notes4 = note4,
-                    Notes5 = note5,
+                    switch (stillsBracketOrder)
+                    {
+                        //0 + -
+                        //0 - +
+                        //-0 +
+                        //+0 -
+                        case "0+-":
+                            Console.WriteLine("Bracket order: " + stillsBracketOrder);
+                            exposureNames[0] = "Normal";
+                            exposureNames[1] = (stillsBracketSteps.ToString() + " stop over");
+                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop under");
 
-                    Photometrics = photometricDataEnabled,
-                    Fixture = photometricsFixtureType,
-                    Distance = photometricsLUXdistance,
-                    LUX = photometricsLUX,
-                    Kelvin = photometricsKelvin,
-                    CRI = photometricsCRI,
-                    Zoom = photometricsZoom,
-                    Dimmer = photometricDimmer,
+                            exposureSteps[0] = stillsShutterspeedBase;
+                            exposureSteps[2] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
+                            exposureSteps[1] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
+                             break;
 
-                    Camera = stillsCameraName,
-                    ISO = stillsISO,
-                    Aperture = stillsAperture,
-                    Shutterspeed = stillShutterspeed,
-                    Whitebalance = stillsWhiteBalance,
-                    Focallength = stillsFocalLength,
-                    Bracketed = stillsBracketed
-                };
+                        case "0-+":
+                            Console.WriteLine("Bracket order: " + stillsBracketOrder);
+                            exposureNames[0] = "Normal";
+                            exposureNames[1] = (stillsBracketSteps.ToString() + " stop over");
+                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop under");
 
-                StillsList.Add(newStill);
+                            exposureSteps[0] = stillsShutterspeedBase;
+                            exposureSteps[2] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
+                            exposureSteps[1] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
+                            break;
 
-                //INCREMENT COUNTERS
-                stillsNextIndex++;
+                        case "-0+":
+                            Console.WriteLine("Bracket order: " + stillsBracketOrder);
+                            exposureNames[1] = "Normal";
+                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop over");
+                            exposureNames[0] = (stillsBracketSteps.ToString() + " stop under");
+
+                            exposureSteps[1] = stillsShutterspeedBase;
+                            exposureSteps[0] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
+                            exposureSteps[2] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
+                            break;
+
+                        case "+0-":
+                            Console.WriteLine("Bracket order: " + stillsBracketOrder);
+                            exposureNames[1] = "Normal";
+                            exposureNames[0] = (stillsBracketSteps.ToString() + " stop over");
+                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop under");
+
+                            exposureSteps[1] = stillsShutterspeedBase;
+                            exposureSteps[2] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
+                            exposureSteps[0] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
+                            break;
+                    }
+                    StillItem newStill1 = new StillItem
+                    {
+                        ExposureID = expID,
+                        Timestamp = DateTime.Now.ToString("G"),
+                        Filename = GetFilename(false, true, 0),
+
+                        Notes1 = note1,
+                        Notes2 = note2,
+                        Notes3 = note3,
+                        Notes4 = note4,
+                        Notes5 = note5,
+
+                        Photometrics = photometricDataEnabled,
+                        Fixture = photometricsFixtureType,
+                        Distance = photometricsLUXdistance,
+                        LUX = photometricsLUX,
+                        Kelvin = photometricsKelvin,
+                        CRI = photometricsCRI,
+                        Zoom = photometricsZoom,
+                        Dimmer = photometricDimmer,
+
+                        Camera = stillsCameraName,
+                        ISO = stillsISO,
+                        Aperture = stillsAperture,
+                        Shutterspeed = exposureSteps[0],
+                        Whitebalance = stillsWhiteBalance,
+                        Focallength = stillsFocalLength,
+                        Bracketed = stillsBracketed,
+                        Exposure = exposureNames[0]
+                        
+                    };
+                    //INCREMENT COUNTERS
+                    stillsNextIndex++;
+
+                    StillItem newStill2 = new StillItem
+                    {
+                        ExposureID = expID,
+                        Timestamp = DateTime.Now.ToString("G"),
+                        Filename = GetFilename(false, true, 0),
+
+                        Notes1 = note1,
+                        Notes2 = note2,
+                        Notes3 = note3,
+                        Notes4 = note4,
+                        Notes5 = note5,
+
+                        Photometrics = photometricDataEnabled,
+                        Fixture = photometricsFixtureType,
+                        Distance = photometricsLUXdistance,
+                        LUX = photometricsLUX,
+                        Kelvin = photometricsKelvin,
+                        CRI = photometricsCRI,
+                        Zoom = photometricsZoom,
+                        Dimmer = photometricDimmer,
+
+                        Camera = stillsCameraName,
+                        ISO = stillsISO,
+                        Aperture = stillsAperture,
+                        Shutterspeed = exposureSteps[1],
+                        Whitebalance = stillsWhiteBalance,
+                        Focallength = stillsFocalLength,
+                        Bracketed = stillsBracketed,
+                        Exposure = exposureNames[1]
+                    };
+                    //INCREMENT COUNTERS
+                    stillsNextIndex++;
+
+                    StillItem newStill3 = new StillItem
+                    {
+                        ExposureID = expID,
+                        Timestamp = DateTime.Now.ToString("G"),
+                        Filename = GetFilename(false, true, 0),
+
+                        Notes1 = note1,
+                        Notes2 = note2,
+                        Notes3 = note3,
+                        Notes4 = note4,
+                        Notes5 = note5,
+
+                        Photometrics = photometricDataEnabled,
+                        Fixture = photometricsFixtureType,
+                        Distance = photometricsLUXdistance,
+                        LUX = photometricsLUX,
+                        Kelvin = photometricsKelvin,
+                        CRI = photometricsCRI,
+                        Zoom = photometricsZoom,
+                        Dimmer = photometricDimmer,
+
+                        Camera = stillsCameraName,
+                        ISO = stillsISO,
+                        Aperture = stillsAperture,
+                        Shutterspeed = exposureSteps[2],
+                        Whitebalance = stillsWhiteBalance,
+                        Focallength = stillsFocalLength,
+                        Bracketed = stillsBracketed,
+                        Exposure = exposureNames[2]
+                    };
+                    //INCREMENT COUNTERS
+                    stillsNextIndex++;
+
+                    StillsList.Add(newStill1);
+                    StillsList.Add(newStill2);
+                    StillsList.Add(newStill3);
+
+
+
+                }
+                
 
             }
 
@@ -295,6 +467,25 @@ namespace ShotLog
             return true;
 
         }
+
+        private int RecursiveDivision(int sourceNumber, int divideXtimes)
+        {
+            int counter = 0;
+            double workValue = sourceNumber;
+            while (counter < divideXtimes)
+            {
+                workValue = (workValue * 0.5);
+                counter++;
+            }
+            return (int)workValue;
+        }
+
+        public string GetExposureID()
+        {
+            exposureIdCounter++;
+            return (projectName + "_" + exposureIdCounter);
+        }
+
 
 
 

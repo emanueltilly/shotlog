@@ -13,6 +13,7 @@ namespace ShotLog
     public class VideoItem
     {
         //Timestamp
+        public string ExposureID { get; set; } = "";
         public string Timestamp { get; set; } = "";
 
         //Video 1

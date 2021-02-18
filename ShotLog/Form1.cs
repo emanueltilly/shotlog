@@ -49,7 +49,7 @@ namespace ShotLog
             stillsFocalLength.Value = data.stillsFocalLength;
             stillsWhitebalance.Value = data.stillsWhiteBalance;
             stillsISO.Value = data.stillsISO;
-            stillsShutterSpeed.Value = data.videoShutterspeed;
+            stillsShutterSpeed.Value = data.stillsShutterspeedBase;
 
             stillsBrackeringEnabled.Checked = data.stillsBracketed;
 
