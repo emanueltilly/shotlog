@@ -13,7 +13,7 @@ namespace ShotLog
     public partial class Form1 : Form
     {
         ProjectData data = new ProjectData();
-
+        string lastSave = "Never";
         
 
         public Form1()
@@ -196,8 +196,12 @@ namespace ShotLog
             if (SaveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 //SAVE TO FILE
-                data.SaveToFile(SaveFileDialog1.FileName);
-
+                if (data.SaveToFile(SaveFileDialog1.FileName) == true)
+                {
+                    lastSavedLabel.Text = ("Last saved: " + DateTime.Now.ToString("t"));
+                    data.savePath = SaveFileDialog1.FileName;
+                }
+                
                 LoadGUIfromData();
             }
         }
@@ -214,7 +218,10 @@ namespace ShotLog
             {
 
                 data = ProjectData.LoadFromFile(openDialog.FileName);
+                data.savePath = openDialog.FileName;
                 LoadGUIfromData();
+                autosaveTimer.Interval = data.autoSaveDuration;
+                autosaveTimer.Start();
 
             }
         }
@@ -373,6 +380,72 @@ namespace ShotLog
         private void exportStillsLogButton_Click(object sender, EventArgs e)
         {
             ExportCSV.exportStills(data.StillsList);
+        }
+
+        private void enableAutoSaveButton_Click(object sender, EventArgs e)
+        {
+            data.autoSave = true;
+        }
+
+        private void disableAutoSaveButton_Click(object sender, EventArgs e)
+        {
+            data.autoSave = false;
+        }
+
+        private void autosave1m_Click(object sender, EventArgs e)
+        {
+            updateAutosaveTimer(1);
+
+        }
+
+        private void autosave5m_Click(object sender, EventArgs e)
+        {
+            updateAutosaveTimer(5);
+        }
+
+        private void autosave10m_Click(object sender, EventArgs e)
+        {
+            updateAutosaveTimer(10);
+        }
+
+        private void autosave30m_Click(object sender, EventArgs e)
+        {
+            updateAutosaveTimer(30);
+        }
+
+        private void updateAutosaveTimer(int durationMin)
+        {
+            data.autoSaveDuration = (durationMin * 60000);
+            data.autoSave = true;
+            autosaveTimer.Interval = data.autoSaveDuration;
+            autosaveTimer.Start();
+        }
+
+        private void autosaveTimer_Tick(object sender, EventArgs e)
+        {
+            if (data.autoSave == true)
+            {
+                if (data.AutoSaveToFile() == true)
+                {
+                    lastSavedLabel.Text = ("Last saved: " + DateTime.Now.ToString("t"));
+                } else
+                {
+                    lastSavedLabel.Text = ("AutoSave Error!");
+                }
+            }
+            
+        }
+
+        private void autosaveChecker_Tick(object sender, EventArgs e)
+        {
+
+            if (data.autoSave == true && data.savePath != "" && autosaveTimer.Enabled == true)
+            {
+                autosaveLabel.Text = "Autosave Enabled";
+            } else
+            {
+                autosaveLabel.Text = "Autosave Disabled";
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Windows.Forms;
 
 namespace ShotLog
 {
@@ -19,6 +20,10 @@ namespace ShotLog
         //Project setting values here
 
         //Project wide
+        public string savePath = "";
+        public bool autoSave = false;
+        public int autoSaveDuration = 60000;
+
         public int exposureIdCounter = 0;
         public string projectName = "Blank Project";
 
@@ -102,13 +107,45 @@ namespace ShotLog
 
 
 
-        public void SaveToFile(string fileName)
+        public bool SaveToFile(string fileName)
         {
-            using (FileStream stream = new FileStream(fileName, FileMode.Create))
+            try
             {
-                XmlSerializer XML = new XmlSerializer(typeof(ProjectData));
-                XML.Serialize(stream, this);
+                using (FileStream stream = new FileStream(fileName, FileMode.Create))
+                {
+                    XmlSerializer XML = new XmlSerializer(typeof(ProjectData));
+                    XML.Serialize(stream, this);
+                }
+                return true;
             }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool AutoSaveToFile()
+        {
+            if (savePath != "")
+            {
+                try
+                {
+                    using (FileStream stream = new FileStream(savePath, FileMode.Create))
+                    {
+                        XmlSerializer XML = new XmlSerializer(typeof(ProjectData));
+                        XML.Serialize(stream, this);
+                    }
+                    return true;
+
+                } catch
+                {
+                    autoSave = false;
+                    MessageBox.Show("Error Auto-saving to filepath: " + savePath + " Please save file in new location to enable auto-saving. AUTO SAVE WILL BE DISABLED UNTIL MANUAL RE-ACTIVATION!");
+                    savePath = "";
+                    return false;
+                }
+            } return false;
+           
         }
 
         public static ProjectData LoadFromFile(string fileName)

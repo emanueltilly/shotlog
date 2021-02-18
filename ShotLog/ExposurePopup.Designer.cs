@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExposurePopup));
             this.label1 = new System.Windows.Forms.Label();
             this.notesBox1 = new System.Windows.Forms.TextBox();
             this.notesBox2 = new System.Windows.Forms.TextBox();
@@ -48,28 +49,28 @@
             this.stillPreview2 = new System.Windows.Forms.Label();
             this.stillPreview3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.fixtureBox = new System.Windows.Forms.TextBox();
-            this.luxBox = new System.Windows.Forms.NumericUpDown();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.distanceBox = new System.Windows.Forms.NumericUpDown();
-            this.label16 = new System.Windows.Forms.Label();
-            this.kelvinBox = new System.Windows.Forms.NumericUpDown();
-            this.label17 = new System.Windows.Forms.Label();
-            this.criBox = new System.Windows.Forms.NumericUpDown();
-            this.label18 = new System.Windows.Forms.Label();
-            this.zoomBox = new System.Windows.Forms.NumericUpDown();
             this.label19 = new System.Windows.Forms.Label();
             this.dimmerBox = new System.Windows.Forms.NumericUpDown();
+            this.label18 = new System.Windows.Forms.Label();
+            this.zoomBox = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.criBox = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.kelvinBox = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.distanceBox = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.luxBox = new System.Windows.Forms.NumericUpDown();
+            this.fixtureBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.luxBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.distanceBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kelvinBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.criBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dimmerBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kelvinBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distanceBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luxBox)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -267,121 +268,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Photometric Data";
             // 
-            // label13
+            // label19
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 20);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 21;
-            this.label13.Text = "Fixture:";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 200);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(42, 13);
+            this.label19.TabIndex = 43;
+            this.label19.Text = "Dimmer";
             // 
-            // fixtureBox
+            // dimmerBox
             // 
-            this.fixtureBox.Location = new System.Drawing.Point(9, 36);
-            this.fixtureBox.Name = "fixtureBox";
-            this.fixtureBox.Size = new System.Drawing.Size(285, 20);
-            this.fixtureBox.TabIndex = 21;
-            // 
-            // luxBox
-            // 
-            this.luxBox.Location = new System.Drawing.Point(114, 68);
-            this.luxBox.Maximum = new decimal(new int[] {
+            this.dimmerBox.Location = new System.Drawing.Point(114, 198);
+            this.dimmerBox.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.luxBox.Name = "luxBox";
-            this.luxBox.Size = new System.Drawing.Size(180, 20);
-            this.luxBox.TabIndex = 32;
-            this.luxBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 70);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(28, 13);
-            this.label14.TabIndex = 33;
-            this.label14.Text = "LUX";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 96);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 13);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Distance";
-            // 
-            // distanceBox
-            // 
-            this.distanceBox.Location = new System.Drawing.Point(114, 94);
-            this.distanceBox.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.distanceBox.Name = "distanceBox";
-            this.distanceBox.Size = new System.Drawing.Size(180, 20);
-            this.distanceBox.TabIndex = 34;
-            this.distanceBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 122);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(36, 13);
-            this.label16.TabIndex = 37;
-            this.label16.Text = "Kelvin";
-            // 
-            // kelvinBox
-            // 
-            this.kelvinBox.Location = new System.Drawing.Point(114, 120);
-            this.kelvinBox.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.kelvinBox.Name = "kelvinBox";
-            this.kelvinBox.Size = new System.Drawing.Size(180, 20);
-            this.kelvinBox.TabIndex = 36;
-            this.kelvinBox.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 148);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(25, 13);
-            this.label17.TabIndex = 39;
-            this.label17.Text = "CRI";
-            // 
-            // criBox
-            // 
-            this.criBox.Location = new System.Drawing.Point(114, 146);
-            this.criBox.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.criBox.Name = "criBox";
-            this.criBox.Size = new System.Drawing.Size(180, 20);
-            this.criBox.TabIndex = 38;
-            this.criBox.Value = new decimal(new int[] {
+            this.dimmerBox.Name = "dimmerBox";
+            this.dimmerBox.Size = new System.Drawing.Size(180, 20);
+            this.dimmerBox.TabIndex = 42;
+            this.dimmerBox.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -413,31 +320,125 @@
             0,
             0});
             // 
-            // label19
+            // label17
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 200);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(42, 13);
-            this.label19.TabIndex = 43;
-            this.label19.Text = "Dimmer";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 148);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(25, 13);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "CRI";
             // 
-            // dimmerBox
+            // criBox
             // 
-            this.dimmerBox.Location = new System.Drawing.Point(114, 198);
-            this.dimmerBox.Maximum = new decimal(new int[] {
+            this.criBox.Location = new System.Drawing.Point(114, 146);
+            this.criBox.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
-            this.dimmerBox.Name = "dimmerBox";
-            this.dimmerBox.Size = new System.Drawing.Size(180, 20);
-            this.dimmerBox.TabIndex = 42;
-            this.dimmerBox.Value = new decimal(new int[] {
+            this.criBox.Name = "criBox";
+            this.criBox.Size = new System.Drawing.Size(180, 20);
+            this.criBox.TabIndex = 38;
+            this.criBox.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 122);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 13);
+            this.label16.TabIndex = 37;
+            this.label16.Text = "Kelvin";
+            // 
+            // kelvinBox
+            // 
+            this.kelvinBox.Location = new System.Drawing.Point(114, 120);
+            this.kelvinBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.kelvinBox.Name = "kelvinBox";
+            this.kelvinBox.Size = new System.Drawing.Size(180, 20);
+            this.kelvinBox.TabIndex = 36;
+            this.kelvinBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 96);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(49, 13);
+            this.label15.TabIndex = 35;
+            this.label15.Text = "Distance";
+            // 
+            // distanceBox
+            // 
+            this.distanceBox.Location = new System.Drawing.Point(114, 94);
+            this.distanceBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.distanceBox.Name = "distanceBox";
+            this.distanceBox.Size = new System.Drawing.Size(180, 20);
+            this.distanceBox.TabIndex = 34;
+            this.distanceBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 70);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(28, 13);
+            this.label14.TabIndex = 33;
+            this.label14.Text = "LUX";
+            // 
+            // luxBox
+            // 
+            this.luxBox.Location = new System.Drawing.Point(114, 68);
+            this.luxBox.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.luxBox.Name = "luxBox";
+            this.luxBox.Size = new System.Drawing.Size(180, 20);
+            this.luxBox.TabIndex = 32;
+            this.luxBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // fixtureBox
+            // 
+            this.fixtureBox.Location = new System.Drawing.Point(9, 36);
+            this.fixtureBox.Name = "fixtureBox";
+            this.fixtureBox.Size = new System.Drawing.Size(285, 20);
+            this.fixtureBox.TabIndex = 21;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 20);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Fixture:";
             // 
             // groupBox2
             // 
@@ -475,18 +476,19 @@
             this.Controls.Add(this.notesBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExposurePopup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New Exposure";
             this.Load += new System.EventHandler(this.ExposurePopup_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.luxBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.distanceBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kelvinBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.criBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dimmerBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kelvinBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.distanceBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.luxBox)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
