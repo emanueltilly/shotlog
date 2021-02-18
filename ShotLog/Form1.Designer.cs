@@ -35,6 +35,7 @@
             this.openProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
+            this.newExposureButton = new System.Windows.Forms.Button();
             this.applySettingsButton = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label35 = new System.Windows.Forms.Label();
@@ -116,10 +117,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.projectName = new System.Windows.Forms.TextBox();
             this.tabPageVideo = new System.Windows.Forms.TabPage();
-            this.tabPageStill = new System.Windows.Forms.TabPage();
-            this.newExposureButton = new System.Windows.Forms.Button();
             this.dataGridViewVideo = new System.Windows.Forms.DataGridView();
+            this.tabPageStill = new System.Windows.Forms.TabPage();
             this.dataGridViewStills = new System.Windows.Forms.DataGridView();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportVideoLogButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportStillsLogButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -156,8 +159,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.videoIndexLength)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabPageVideo.SuspendLayout();
-            this.tabPageStill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVideo)).BeginInit();
+            this.tabPageStill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStills)).BeginInit();
             this.SuspendLayout();
             // 
@@ -175,8 +178,11 @@
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openProjectToolStripMenuItem,
             this.saveProjectToolStripMenuItem,
-            this.openProjectToolStripMenuItem});
+            this.toolStripSeparator1,
+            this.exportVideoLogButton,
+            this.exportStillsLogButton});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -186,14 +192,14 @@
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectToolStripMenuItem_Click);
             // 
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.OpenProjectToolStripMenuItem_Click);
             // 
@@ -224,6 +230,17 @@
             this.tabPageSettings.TabIndex = 0;
             this.tabPageSettings.Text = "Settings";
             this.tabPageSettings.UseVisualStyleBackColor = true;
+            // 
+            // newExposureButton
+            // 
+            this.newExposureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newExposureButton.Location = new System.Drawing.Point(620, 281);
+            this.newExposureButton.Name = "newExposureButton";
+            this.newExposureButton.Size = new System.Drawing.Size(300, 202);
+            this.newExposureButton.TabIndex = 4;
+            this.newExposureButton.Text = "NEW EXPOSURE";
+            this.newExposureButton.UseVisualStyleBackColor = true;
+            this.newExposureButton.Click += new System.EventHandler(this.NewExposureButton_Click);
             // 
             // applySettingsButton
             // 
@@ -1327,27 +1344,6 @@
             this.tabPageVideo.Text = "Video Log";
             this.tabPageVideo.UseVisualStyleBackColor = true;
             // 
-            // tabPageStill
-            // 
-            this.tabPageStill.Controls.Add(this.dataGridViewStills);
-            this.tabPageStill.Location = new System.Drawing.Point(4, 22);
-            this.tabPageStill.Name = "tabPageStill";
-            this.tabPageStill.Size = new System.Drawing.Size(928, 491);
-            this.tabPageStill.TabIndex = 2;
-            this.tabPageStill.Text = "Still Log";
-            this.tabPageStill.UseVisualStyleBackColor = true;
-            // 
-            // newExposureButton
-            // 
-            this.newExposureButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newExposureButton.Location = new System.Drawing.Point(620, 281);
-            this.newExposureButton.Name = "newExposureButton";
-            this.newExposureButton.Size = new System.Drawing.Size(300, 202);
-            this.newExposureButton.TabIndex = 4;
-            this.newExposureButton.Text = "NEW EXPOSURE";
-            this.newExposureButton.UseVisualStyleBackColor = true;
-            this.newExposureButton.Click += new System.EventHandler(this.NewExposureButton_Click);
-            // 
             // dataGridViewVideo
             // 
             this.dataGridViewVideo.AllowUserToAddRows = false;
@@ -1361,6 +1357,16 @@
             this.dataGridViewVideo.Size = new System.Drawing.Size(922, 485);
             this.dataGridViewVideo.TabIndex = 0;
             // 
+            // tabPageStill
+            // 
+            this.tabPageStill.Controls.Add(this.dataGridViewStills);
+            this.tabPageStill.Location = new System.Drawing.Point(4, 22);
+            this.tabPageStill.Name = "tabPageStill";
+            this.tabPageStill.Size = new System.Drawing.Size(928, 491);
+            this.tabPageStill.TabIndex = 2;
+            this.tabPageStill.Text = "Still Log";
+            this.tabPageStill.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewStills
             // 
             this.dataGridViewStills.AllowUserToAddRows = false;
@@ -1372,6 +1378,25 @@
             this.dataGridViewStills.Name = "dataGridViewStills";
             this.dataGridViewStills.Size = new System.Drawing.Size(928, 491);
             this.dataGridViewStills.TabIndex = 0;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // exportVideoLogButton
+            // 
+            this.exportVideoLogButton.Name = "exportVideoLogButton";
+            this.exportVideoLogButton.Size = new System.Drawing.Size(180, 22);
+            this.exportVideoLogButton.Text = "Export Video Log";
+            this.exportVideoLogButton.Click += new System.EventHandler(this.exportVideoLogButton_Click);
+            // 
+            // exportStillsLogButton
+            // 
+            this.exportStillsLogButton.Name = "exportStillsLogButton";
+            this.exportStillsLogButton.Size = new System.Drawing.Size(180, 22);
+            this.exportStillsLogButton.Text = "Export Still Log";
+            this.exportStillsLogButton.Click += new System.EventHandler(this.exportStillsLogButton_Click);
             // 
             // Form1
             // 
@@ -1427,8 +1452,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPageVideo.ResumeLayout(false);
-            this.tabPageStill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVideo)).EndInit();
+            this.tabPageStill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1528,6 +1553,9 @@
         private System.Windows.Forms.Button newExposureButton;
         private System.Windows.Forms.DataGridView dataGridViewVideo;
         private System.Windows.Forms.DataGridView dataGridViewStills;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem exportVideoLogButton;
+        private System.Windows.Forms.ToolStripMenuItem exportStillsLogButton;
     }
 }
 

@@ -364,5 +364,15 @@ namespace ShotLog
         {
             videoTake.Value = 1;
         }
+
+        private void exportVideoLogButton_Click(object sender, EventArgs e)
+        {
+            ExportCSV.exportVideo(data.VideoList);
+        }
+
+        private void exportStillsLogButton_Click(object sender, EventArgs e)
+        {
+            ExportCSV.exportStills(data.StillsList);
+        }
     }
 }
