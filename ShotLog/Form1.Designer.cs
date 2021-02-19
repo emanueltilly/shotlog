@@ -48,6 +48,8 @@
             this.autosave30m = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lastSavedLabel = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.autosaveLabel = new System.Windows.Forms.ToolStripLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.newExposureButton = new System.Windows.Forms.Button();
@@ -136,8 +138,6 @@
             this.tabPageStill = new System.Windows.Forms.TabPage();
             this.dataGridViewStills = new System.Windows.Forms.DataGridView();
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.autosaveLabel = new System.Windows.Forms.ToolStripLabel();
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -321,6 +321,18 @@
             this.lastSavedLabel.Name = "lastSavedLabel";
             this.lastSavedLabel.Size = new System.Drawing.Size(98, 22);
             this.lastSavedLabel.Text = "Last saved: Never";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
+            // 
+            // autosaveLabel
+            // 
+            this.autosaveLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.autosaveLabel.Name = "autosaveLabel";
+            this.autosaveLabel.Size = new System.Drawing.Size(65, 22);
+            this.autosaveLabel.Text = "AutoSave ?";
             // 
             // tabControl1
             // 
@@ -1504,18 +1516,6 @@
             this.autosaveTimer.Interval = 300000;
             this.autosaveTimer.Tick += new System.EventHandler(this.AutosaveTimer_Tick);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // autosaveLabel
-            // 
-            this.autosaveLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.autosaveLabel.Name = "autosaveLabel";
-            this.autosaveLabel.Size = new System.Drawing.Size(65, 22);
-            this.autosaveLabel.Text = "AutoSave ?";
-            // 
             // autosaveChecker
             // 
             this.autosaveChecker.Enabled = true;
@@ -1535,6 +1535,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ShotLog";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
