@@ -281,6 +281,7 @@ namespace ShotLog
                     Tint = videoStudioTint,
                     Saturation = videoStudioSaturation,
                     Gain = videoStudioGain,
+                    Filter = videoStudioFilter,
 
                     Gain_Red = videoStudioRedGain,
                     Gain_Green = videoStudioGreenGain,

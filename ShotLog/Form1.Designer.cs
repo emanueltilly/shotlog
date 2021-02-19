@@ -142,6 +142,7 @@
             this.dataGridViewStills = new System.Windows.Forms.DataGridView();
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
+            this.deleteRowButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -190,7 +191,8 @@
             this.toolStripSeparator3,
             this.lastSavedLabel,
             this.toolStripSeparator5,
-            this.autosaveLabel});
+            this.autosaveLabel,
+            this.deleteRowButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(936, 25);
@@ -1547,6 +1549,17 @@
             this.autosaveChecker.Interval = 1000;
             this.autosaveChecker.Tick += new System.EventHandler(this.AutosaveChecker_Tick);
             // 
+            // deleteRowButton
+            // 
+            this.deleteRowButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.deleteRowButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.deleteRowButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowButton.Image")));
+            this.deleteRowButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteRowButton.Name = "deleteRowButton";
+            this.deleteRowButton.Size = new System.Drawing.Size(113, 22);
+            this.deleteRowButton.Text = "Delete selected row";
+            this.deleteRowButton.Click += new System.EventHandler(this.DeleteRowButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1725,6 +1738,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOn;
         private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOff;
+        private System.Windows.Forms.ToolStripButton deleteRowButton;
     }
 }
 

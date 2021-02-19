@@ -255,6 +255,12 @@ namespace ShotLog
 
             //Colors
             SetDatagridviewColors();
+
+            //Scroll to bottom
+            if (dataGridViewVideo.RowCount > 3) { dataGridViewVideo.FirstDisplayedScrollingRowIndex = dataGridViewVideo.RowCount - 1; }
+            if (dataGridViewStills.RowCount > 3) { dataGridViewStills.FirstDisplayedScrollingRowIndex = dataGridViewStills.RowCount - 1; }
+            
+                
         }
 
         private void SetDatagridviewColors()
@@ -338,6 +344,52 @@ namespace ShotLog
             
             autosaveNewFilesOn.Font = (data.autoSaveWithNewFilename ? fontBold : fontRegular);
             autosaveNewFilesOff.Font = (data.autoSaveWithNewFilename ? fontRegular : fontBold);
+        }
+
+        private void DeleteSelectedRow()
+        {
+            
+            //Video    
+            if (tabControl1.SelectedIndex == 1)
+            {
+                try
+                {
+                    string box_msg = string.Format("Do you want to DELETE this row from the Video list? \n\n\nExposureID: {0} \n\nFilename: {1} \n\nNote 1: {2} \n\nNote 2: {3} \n\nNote 3: {4} \n\nNote 4: {5} \n\nNote 5: {6}", data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].ExposureID, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Filename, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Notes1, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Notes2, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Notes3, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Notes4, data.VideoList[dataGridViewVideo.CurrentCell.RowIndex].Notes5);
+                    string box_title = "Are you sure?";
+                    DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        data.VideoList.RemoveAt(dataGridViewVideo.CurrentCell.RowIndex);
+                        ReloadDataGridView();
+                    }
+                } catch
+                {
+                    MessageBox.Show("No row was selected, or there was a problem deleting the row.", "No row selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                
+            }
+
+            //Stills    
+            else if (tabControl1.SelectedIndex == 2)
+            {
+                try
+                {
+                    string box_msg = string.Format("Do you want to DELETE this row from the Stills list? \n\n\nExposureID: {0} \n\nFilename: {1} \n\nNote 1: {2} \n\nNote 2: {3} \n\nNote 3: {4} \n\nNote 4: {5} \n\nNote 5: {6}", data.StillsList[dataGridViewStills.CurrentCell.RowIndex].ExposureID, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Filename, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Notes1, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Notes2, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Notes3, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Notes4, data.StillsList[dataGridViewStills.CurrentCell.RowIndex].Notes5);
+                    string box_title = "Are you sure?";
+                    DialogResult result = MessageBox.Show(box_msg, box_title, MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (result == DialogResult.Yes)
+                    {
+                        data.StillsList.RemoveAt(dataGridViewStills.CurrentCell.RowIndex);
+                        ReloadDataGridView();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("No row was selected, or there was a problem deleting the row.", "No row selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
+
         }
 
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -498,6 +550,11 @@ namespace ShotLog
         {
             data.autoSaveWithNewFilename = false;
             UpdateFileMenuFormating();
+        }
+
+        private void DeleteRowButton_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedRow();
         }
     }
 }
