@@ -8,6 +8,7 @@ using System.Runtime.Serialization;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace ShotLog
 {
@@ -23,6 +24,7 @@ namespace ShotLog
         public string savePath = "";
         public bool autoSave = false;
         public int autoSaveDuration = 60000;
+        public bool autoSaveWithNewFilename = false;
 
         public int exposureIdCounter = 0;
         public string projectName = "Blank Project";
@@ -128,19 +130,30 @@ namespace ShotLog
         {
             if (savePath != "")
             {
+                string tmpSavePath;
+                if (autoSaveWithNewFilename == true)
+                {
+                    var date = DateTime.Now;
+                    string tmpTime = (date.Year.ToString() + IntToStringWithPadding(date.Month, 2) + IntToStringWithPadding(date.Day, 2) + "_" + IntToStringWithPadding(date.Hour, 2) + IntToStringWithPadding(date.Minute, 2));
+                    tmpSavePath = (System.IO.Path.Combine(System.IO.Path.GetDirectoryName(savePath), System.IO.Path.GetFileNameWithoutExtension(savePath)) + "_autosave_" + tmpTime + ".xml");
+                } else
+                {
+                    tmpSavePath = savePath;
+                }
+
                 try
                 {
-                    using (FileStream stream = new FileStream(savePath, FileMode.Create))
+                    using (FileStream stream = new FileStream(tmpSavePath, FileMode.Create))
                     {
                         XmlSerializer XML = new XmlSerializer(typeof(ProjectData));
                         XML.Serialize(stream, this);
                     }
                     return true;
 
-                } catch
+                } catch (Exception ex)
                 {
                     autoSave = false;
-                    MessageBox.Show("Error Auto-saving to filepath: " + savePath + " Please save file in new location to enable auto-saving. AUTO SAVE WILL BE DISABLED UNTIL MANUAL RE-ACTIVATION!");
+                    MessageBox.Show("Error Auto-saving to filepath: " + tmpSavePath + " Please save file in new location to enable auto-saving. AUTO SAVE WILL BE DISABLED UNTIL MANUAL RE-ACTIVATION! - " + ex);
                     savePath = "";
                     return false;
                 }

@@ -96,6 +96,9 @@ namespace ShotLog
             ReloadDataGridView();
 
 
+            UpdateFileMenuFormating();
+
+
         }
 
         private void SaveGUItoData()
@@ -320,6 +323,23 @@ namespace ShotLog
 
         }
 
+        private void UpdateFileMenuFormating()
+        {
+            Font fontRegular = new Font(saveProjectToolStripMenuItem.Font, FontStyle.Regular);
+            Font fontBold = new Font(saveProjectToolStripMenuItem.Font, FontStyle.Bold);
+
+            enableAutoSaveButton.Font = (data.autoSave ? fontBold : fontRegular);
+            disableAutoSaveButton.Font = (data.autoSave ? fontRegular : fontBold);
+
+            autosave1m.Font = ((data.autoSaveDuration == (1 * 60000) && data.autoSave == true) ? fontBold : fontRegular);
+            autosave5m.Font = ((data.autoSaveDuration == (5 * 60000) && data.autoSave == true) ? fontBold : fontRegular);
+            autosave10m.Font = ((data.autoSaveDuration == (10 * 60000) && data.autoSave == true) ? fontBold : fontRegular);
+            autosave30m.Font = ((data.autoSaveDuration == (30 * 60000) && data.autoSave == true) ? fontBold : fontRegular);
+            
+            autosaveNewFilesOn.Font = (data.autoSaveWithNewFilename ? fontBold : fontRegular);
+            autosaveNewFilesOff.Font = (data.autoSaveWithNewFilename ? fontRegular : fontBold);
+        }
+
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveProject();
@@ -329,6 +349,7 @@ namespace ShotLog
         private void OpenProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenProject();
+            UpdateFileMenuFormating();
         }
 
         private void ApplySettingsButton_Click(object sender, EventArgs e)
@@ -340,6 +361,7 @@ namespace ShotLog
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadGUIfromData();
+            
         }
 
         private void NewExposureButton_Click(object sender, EventArgs e)
@@ -375,42 +397,50 @@ namespace ShotLog
         private void ExportVideoLogButton_Click(object sender, EventArgs e)
         {
             ExportCSV.ExportVideo(data.VideoList);
+            UpdateFileMenuFormating();
         }
 
         private void ExportStillsLogButton_Click(object sender, EventArgs e)
         {
             ExportCSV.ExportStills(data.StillsList);
+            UpdateFileMenuFormating();
         }
 
         private void EnableAutoSaveButton_Click(object sender, EventArgs e)
         {
             data.autoSave = true;
+            UpdateFileMenuFormating();
         }
 
         private void DisableAutoSaveButton_Click(object sender, EventArgs e)
         {
             data.autoSave = false;
+            UpdateFileMenuFormating();
         }
 
         private void Autosave1m_Click(object sender, EventArgs e)
         {
             UpdateAutosaveTimer(1);
+            UpdateFileMenuFormating();
 
         }
 
         private void Autosave5m_Click(object sender, EventArgs e)
         {
             UpdateAutosaveTimer(5);
+            UpdateFileMenuFormating();
         }
 
         private void Autosave10m_Click(object sender, EventArgs e)
         {
             UpdateAutosaveTimer(10);
+            UpdateFileMenuFormating();
         }
 
         private void Autosave30m_Click(object sender, EventArgs e)
         {
             UpdateAutosaveTimer(30);
+            UpdateFileMenuFormating();
         }
 
         private void UpdateAutosaveTimer(int durationMin)
@@ -455,7 +485,19 @@ namespace ShotLog
             if (e.CloseReason == CloseReason.UserClosing)
                 e.Cancel = MessageBox.Show(@"Are you sure you want to close ShotLog? Any unsaved changes will be lost!",
                                            Application.ProductName,
-                                           MessageBoxButtons.YesNo) == DialogResult.No;
+                                           MessageBoxButtons.OKCancel) == DialogResult.Cancel;
+        }
+
+        private void AutosaveNewFilesOn_Click(object sender, EventArgs e)
+        {
+            data.autoSaveWithNewFilename = true;
+            UpdateFileMenuFormating();
+        }
+
+        private void AutosaveNewFilesOff_Click(object sender, EventArgs e)
+        {
+            data.autoSaveWithNewFilename = false;
+            UpdateFileMenuFormating();
         }
     }
 }

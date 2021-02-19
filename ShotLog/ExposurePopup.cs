@@ -22,6 +22,25 @@ namespace ShotLog
         public ExposurePopup()
         {
             InitializeComponent();
+            this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(KeyEvent);
+        }
+
+        private void KeyEvent(object sender, KeyEventArgs e) //Keyup Event 
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Commit();  
+            }
+            if (e.KeyCode == Keys.F3)
+            {
+                ToggleVideoEnabled();
+            }
+            if (e.KeyCode == Keys.F4)
+            {
+                ToggleStillsEnabled();
+            }
+
         }
 
         private void ExposurePopup_Load(object sender, EventArgs e)
@@ -55,8 +74,8 @@ namespace ShotLog
 
         private void UpdateButtonsText()
         {
-            videoEnabledButton.Text = (data.videoEnabled ? "VIDEO ENABLED" : "VIDEO DISABLED");
-            stillsEnabledButton.Text = (data.stillsEnabled ? "STILLS ENABLED" : "STILLS DISABLED");
+            videoEnabledButton.Text = (data.videoEnabled ? "VIDEO ENABLED (F3)" : "VIDEO DISABLED (F3)");
+            stillsEnabledButton.Text = (data.stillsEnabled ? "STILLS ENABLED (F4)" : "STILLS DISABLED (F4)");
 
             videoPreview1.Visible = (data.videoEnabled);
             stillPreview1.Visible = (data.stillsEnabled);
@@ -66,17 +85,32 @@ namespace ShotLog
 
         private void VideoEnabledButton_Click(object sender, EventArgs e)
         {
+            ToggleVideoEnabled();
+        }
+
+        private void ToggleVideoEnabled()
+        {
             data.videoEnabled = (data.videoEnabled ? false : true);
             UpdateButtonsText();
         }
 
         private void StillsEnabledButton_Click(object sender, EventArgs e)
         {
+            ToggleStillsEnabled();
+        }
+
+        private void ToggleStillsEnabled()
+        {
             data.stillsEnabled = (data.stillsEnabled ? false : true);
             UpdateButtonsText();
         }
 
         private void CommitShotButton_Click(object sender, EventArgs e)
+        {
+            Commit();
+        }
+
+        private void Commit()
         {
             bool commitOK = (data.CommitToList(
                 notesBox1.Text,
@@ -94,12 +128,13 @@ namespace ShotLog
                 (int)zoomBox.Value,
                 (int)dimmerBox.Value,
                 (int)data.stillsShutterspeedBase
-                )) ;
+                ));
 
             if (commitOK != true)
             {
-                MessageBox.Show("A problem occured when commiting the shot to the list. Please check the list.", "Error", MessageBoxButtons.OK , MessageBoxIcon.Error);
-            } else
+                MessageBox.Show("A problem occured when commiting the shot to the list. Please check the list.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
             {
                 this.Close();
             }

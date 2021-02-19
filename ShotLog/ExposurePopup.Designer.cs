@@ -183,7 +183,7 @@
             this.commitShotButton.Name = "commitShotButton";
             this.commitShotButton.Size = new System.Drawing.Size(625, 78);
             this.commitShotButton.TabIndex = 12;
-            this.commitShotButton.Text = "Commit";
+            this.commitShotButton.Text = "Commit (Enter)";
             this.commitShotButton.UseVisualStyleBackColor = true;
             this.commitShotButton.Click += new System.EventHandler(this.CommitShotButton_Click);
             // 

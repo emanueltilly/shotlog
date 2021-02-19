@@ -46,6 +46,9 @@
             this.autosave5m = new System.Windows.Forms.ToolStripMenuItem();
             this.autosave10m = new System.Windows.Forms.ToolStripMenuItem();
             this.autosave30m = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.autosaveNewFilesOn = new System.Windows.Forms.ToolStripMenuItem();
+            this.autosaveNewFilesOff = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lastSavedLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -214,40 +217,40 @@
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.OpenProjectToolStripMenuItem_Click);
             // 
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exportVideoLogButton
             // 
             this.exportVideoLogButton.Name = "exportVideoLogButton";
-            this.exportVideoLogButton.Size = new System.Drawing.Size(164, 22);
+            this.exportVideoLogButton.Size = new System.Drawing.Size(180, 22);
             this.exportVideoLogButton.Text = "Export Video Log";
             this.exportVideoLogButton.Click += new System.EventHandler(this.ExportVideoLogButton_Click);
             // 
             // exportStillsLogButton
             // 
             this.exportStillsLogButton.Name = "exportStillsLogButton";
-            this.exportStillsLogButton.Size = new System.Drawing.Size(164, 22);
+            this.exportStillsLogButton.Size = new System.Drawing.Size(180, 22);
             this.exportStillsLogButton.Text = "Export Still Log";
             this.exportStillsLogButton.Click += new System.EventHandler(this.ExportStillsLogButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // toolStripMenuItem1
             // 
@@ -258,57 +261,79 @@
             this.autosave1m,
             this.autosave5m,
             this.autosave10m,
-            this.autosave30m});
+            this.autosave30m,
+            this.toolStripSeparator6,
+            this.autosaveNewFilesOn,
+            this.autosaveNewFilesOff});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Auto Save...";
             // 
             // enableAutoSaveButton
             // 
             this.enableAutoSaveButton.Name = "enableAutoSaveButton";
-            this.enableAutoSaveButton.Size = new System.Drawing.Size(185, 22);
+            this.enableAutoSaveButton.Size = new System.Drawing.Size(236, 22);
             this.enableAutoSaveButton.Text = "Enable AutoSave";
             this.enableAutoSaveButton.Click += new System.EventHandler(this.EnableAutoSaveButton_Click);
             // 
             // disableAutoSaveButton
             // 
             this.disableAutoSaveButton.Name = "disableAutoSaveButton";
-            this.disableAutoSaveButton.Size = new System.Drawing.Size(185, 22);
+            this.disableAutoSaveButton.Size = new System.Drawing.Size(236, 22);
             this.disableAutoSaveButton.Text = "Disable AutoSave";
             this.disableAutoSaveButton.Click += new System.EventHandler(this.DisableAutoSaveButton_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(233, 6);
             // 
             // autosave1m
             // 
             this.autosave1m.Name = "autosave1m";
-            this.autosave1m.Size = new System.Drawing.Size(185, 22);
+            this.autosave1m.Size = new System.Drawing.Size(236, 22);
             this.autosave1m.Text = "AutoSave 1 minute";
             this.autosave1m.Click += new System.EventHandler(this.Autosave1m_Click);
             // 
             // autosave5m
             // 
             this.autosave5m.Name = "autosave5m";
-            this.autosave5m.Size = new System.Drawing.Size(185, 22);
+            this.autosave5m.Size = new System.Drawing.Size(236, 22);
             this.autosave5m.Text = "AutoSave 5 minutes";
             this.autosave5m.Click += new System.EventHandler(this.Autosave5m_Click);
             // 
             // autosave10m
             // 
             this.autosave10m.Name = "autosave10m";
-            this.autosave10m.Size = new System.Drawing.Size(185, 22);
+            this.autosave10m.Size = new System.Drawing.Size(236, 22);
             this.autosave10m.Text = "AutoSave 10 minutes";
             this.autosave10m.Click += new System.EventHandler(this.Autosave10m_Click);
             // 
             // autosave30m
             // 
             this.autosave30m.Name = "autosave30m";
-            this.autosave30m.Size = new System.Drawing.Size(185, 22);
+            this.autosave30m.Size = new System.Drawing.Size(236, 22);
             this.autosave30m.Text = "AutoSave 30 minutes";
             this.autosave30m.Click += new System.EventHandler(this.Autosave30m_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(233, 6);
+            // 
+            // autosaveNewFilesOn
+            // 
+            this.autosaveNewFilesOn.Name = "autosaveNewFilesOn";
+            this.autosaveNewFilesOn.Size = new System.Drawing.Size(236, 22);
+            this.autosaveNewFilesOn.Text = "Autosave creates new files ON";
+            this.autosaveNewFilesOn.Click += new System.EventHandler(this.AutosaveNewFilesOn_Click);
+            // 
+            // autosaveNewFilesOff
+            // 
+            this.autosaveNewFilesOff.Name = "autosaveNewFilesOff";
+            this.autosaveNewFilesOff.Size = new System.Drawing.Size(236, 22);
+            this.autosaveNewFilesOff.Text = "Autosave creates new files OFF";
+            this.autosaveNewFilesOff.Click += new System.EventHandler(this.AutosaveNewFilesOff_Click);
             // 
             // toolStripSeparator3
             // 
@@ -369,7 +394,7 @@
             this.newExposureButton.Name = "newExposureButton";
             this.newExposureButton.Size = new System.Drawing.Size(300, 202);
             this.newExposureButton.TabIndex = 4;
-            this.newExposureButton.Text = "NEW EXPOSURE";
+            this.newExposureButton.Text = "NEW EXPOSURE (F1)";
             this.newExposureButton.UseVisualStyleBackColor = true;
             this.newExposureButton.Click += new System.EventHandler(this.NewExposureButton_Click);
             // 
@@ -1697,6 +1722,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripLabel autosaveLabel;
         private System.Windows.Forms.Timer autosaveChecker;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOn;
+        private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOff;
     }
 }
 
