@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -392,6 +393,11 @@ namespace ShotLog
 
         }
 
+        private void OpenInBrowser(string sourceUrl)
+        {
+            Process.Start(sourceUrl);
+        }
+
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveProject();
@@ -555,6 +561,16 @@ namespace ShotLog
         private void DeleteRowButton_Click(object sender, EventArgs e)
         {
             DeleteSelectedRow();
+        }
+
+        private void GithubButton_Click(object sender, EventArgs e)
+        {
+            OpenInBrowser("https://github.com/emanueltilly/shotlog");
+        }
+
+        private void AboutButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ShotLog\n\nVersion 1.0.0.0\n\nLicensed under the Apache 2.0 license.", "ShotLog", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

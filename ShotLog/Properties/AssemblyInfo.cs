@@ -7,11 +7,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ShotLog")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Logging application for film and photograph with features added for broadcast and shootout applications.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ShotLog")]
-[assembly: AssemblyCopyright("")]
+[assembly: AssemblyCopyright("Apache 2.0")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -49,10 +49,14 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.autosaveNewFilesOn = new System.Windows.Forms.ToolStripMenuItem();
             this.autosaveNewFilesOff = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.githubButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lastSavedLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.autosaveLabel = new System.Windows.Forms.ToolStripLabel();
+            this.deleteRowButton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageSettings = new System.Windows.Forms.TabPage();
             this.newExposureButton = new System.Windows.Forms.Button();
@@ -142,7 +146,6 @@
             this.dataGridViewStills = new System.Windows.Forms.DataGridView();
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
-            this.deleteRowButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -209,7 +212,10 @@
             this.exportVideoLogButton,
             this.exportStillsLogButton,
             this.toolStripSeparator2,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.toolStripSeparator7,
+            this.aboutButton,
+            this.githubButton});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -337,6 +343,25 @@
             this.autosaveNewFilesOff.Text = "Autosave creates new files OFF";
             this.autosaveNewFilesOff.Click += new System.EventHandler(this.AutosaveNewFilesOff_Click);
             // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            // 
+            // aboutButton
+            // 
+            this.aboutButton.Name = "aboutButton";
+            this.aboutButton.Size = new System.Drawing.Size(180, 22);
+            this.aboutButton.Text = "About";
+            this.aboutButton.Click += new System.EventHandler(this.AboutButton_Click);
+            // 
+            // githubButton
+            // 
+            this.githubButton.Name = "githubButton";
+            this.githubButton.Size = new System.Drawing.Size(180, 22);
+            this.githubButton.Text = "GitHub";
+            this.githubButton.Click += new System.EventHandler(this.GithubButton_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -360,6 +385,17 @@
             this.autosaveLabel.Name = "autosaveLabel";
             this.autosaveLabel.Size = new System.Drawing.Size(65, 22);
             this.autosaveLabel.Text = "AutoSave ?";
+            // 
+            // deleteRowButton
+            // 
+            this.deleteRowButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.deleteRowButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.deleteRowButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowButton.Image")));
+            this.deleteRowButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.deleteRowButton.Name = "deleteRowButton";
+            this.deleteRowButton.Size = new System.Drawing.Size(113, 22);
+            this.deleteRowButton.Text = "Delete selected row";
+            this.deleteRowButton.Click += new System.EventHandler(this.DeleteRowButton_Click);
             // 
             // tabControl1
             // 
@@ -1549,17 +1585,6 @@
             this.autosaveChecker.Interval = 1000;
             this.autosaveChecker.Tick += new System.EventHandler(this.AutosaveChecker_Tick);
             // 
-            // deleteRowButton
-            // 
-            this.deleteRowButton.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.deleteRowButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.deleteRowButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteRowButton.Image")));
-            this.deleteRowButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.deleteRowButton.Name = "deleteRowButton";
-            this.deleteRowButton.Size = new System.Drawing.Size(113, 22);
-            this.deleteRowButton.Text = "Delete selected row";
-            this.deleteRowButton.Click += new System.EventHandler(this.DeleteRowButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1739,6 +1764,9 @@
         private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOn;
         private System.Windows.Forms.ToolStripMenuItem autosaveNewFilesOff;
         private System.Windows.Forms.ToolStripButton deleteRowButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem aboutButton;
+        private System.Windows.Forms.ToolStripMenuItem githubButton;
     }
 }
 
