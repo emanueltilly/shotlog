@@ -7,6 +7,9 @@ With global exposure IDs ShotLog helps you keep still images and videoclips link
 **Lighting fixture shootouts**
 ShotLog is tailor made for fixture shootouts. Features include Photometric data logging for LUX, CRI, Kelvin, Dimmer and Zoom-values, and support for bracketed still photography.
 
+**CSV Export**
+While ShotLog is a great tool during produciton, the post production workflow might need something different. ShotLog can export the logs to CSV files for easy distribution between people and softwares.
+
 ## Screenshots
 **Main window**<br>
 ![Main window](screenshots/shotlog_screenshot_mainwindow.png)
