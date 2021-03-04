@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExposurePopup));
             this.label1 = new System.Windows.Forms.Label();
             this.notesBox1 = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@
             this.fixtureBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webslateTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dimmerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).BeginInit();
@@ -455,6 +457,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filename preview";
             // 
+            // webslateTimer
+            // 
+            this.webslateTimer.Enabled = true;
+            this.webslateTimer.Interval = 500;
+            this.webslateTimer.Tick += new System.EventHandler(this.webslateTimer_Tick);
+            // 
             // ExposurePopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -533,5 +541,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown luxBox;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Timer webslateTimer;
     }
 }

@@ -15,6 +15,8 @@ namespace ShotLog
     public partial class Form1 : Form
     {
         ProjectData data = new ProjectData();
+
+        private bool exposurePopupOpenFlag = false;
         
         
 
@@ -234,12 +236,18 @@ namespace ShotLog
         private void NewExposure()
         {
             SaveGUItoData();
+
+            exposurePopupOpenFlag = true;
             
             ExposurePopup expoPopup = new ExposurePopup();
             expoPopup.SetProjectData(data); //Send project data to popup
             expoPopup.ShowDialog(); //Show popup and wait for popup to close
 
+            exposurePopupOpenFlag = false;
+
             LoadGUIfromData();
+
+            
 
         }
 
@@ -398,6 +406,8 @@ namespace ShotLog
         {
             Process.Start(sourceUrl);
         }
+
+        
 
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -575,6 +585,16 @@ namespace ShotLog
         private void AboutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ShotLog\n\nVersion 1.0.0.0\n\nLicensed under the Apache 2.0 license.", "ShotLog", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void webslateTimer_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Flag enabled: " + exposurePopupOpenFlag);
+            if (exposurePopupOpenFlag != true)
+            {
+                data.UpdateWebslateMain();
+            }
+            
         }
     }
 }

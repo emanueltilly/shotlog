@@ -109,6 +109,98 @@ namespace ShotLog
 
 
 
+        //WebSlate
+        public int webslatePort = 8000;
+
+        public int webslateRefresh = 1;
+        public int webslateTextsize = 5;
+
+        public string webslateContent1 = "note1";
+        public string webslateContent2 = "note2";
+        public string webslateContent3 = "note3";
+        public string webslateContent4 = "photometricFixture";
+        public string webslateContent5 = "photometricDimZoom";
+
+        public string webslateField1 = "";
+        public string webslateField2 = "";
+        public string webslateField3 = "";
+        public string webslateField4 = "";
+        public string webslateField5 = "";
+
+        public string tempNote1 = "";
+        public string tempNote2 = "";
+        public string tempNote3 = "";
+        public string tempNote4 = "";
+        public string tempNote5 = "";
+        public string tempPhotometricsFixtureType = "";
+        public int tempPhotometricDimmer = 0;
+        public int tempPhotometricZoom = 0;
+
+        public void UpdateWebslateMain()
+        {
+
+            webslateField1 = GetWebslateData(false, webslateContent1);
+            webslateField2 = GetWebslateData(false, webslateContent2);
+            webslateField3 = GetWebslateData(false, webslateContent3);
+            webslateField4 = GetWebslateData(false, webslateContent4);
+            webslateField5 = GetWebslateData(false, webslateContent5);
+
+        }
+        public void UpdateWebslateExposurePopup(string n1, string n2, string n3, string n4, string n5, string fixt, int dim, int zoom)
+        {
+            tempNote1 = n1;
+            tempNote2 = n2;
+            tempNote3 = n3;
+            tempNote4 = n4;
+            tempNote5 = n5;
+            tempPhotometricsFixtureType = fixt;
+            tempPhotometricDimmer = dim;
+            tempPhotometricZoom = zoom;
+
+            webslateField1 = GetWebslateData(true, webslateContent1);
+            webslateField2 = GetWebslateData(true, webslateContent2);
+            webslateField3 = GetWebslateData(true, webslateContent3);
+            webslateField4 = GetWebslateData(true, webslateContent4);
+            webslateField5 = GetWebslateData(true, webslateContent5);
+
+
+        }
+
+        private string GetWebslateData(bool exposurePopup, string query)
+        {
+            switch (query)
+            {
+                case "blank":
+                    return " ";
+                case "note1":
+                    return (exposurePopup ? tempNote1 : notesField1);
+                case "note2":
+                    return (exposurePopup ? tempNote2 : notesField2);
+                case "note3":
+                    return (exposurePopup ? tempNote3 : notesField3);
+                case "note4":
+                    return (exposurePopup ? tempNote4 : notesField4);
+                case "note5":
+                    return (exposurePopup ? tempNote5 : notesField5);
+                case "exposureID":
+                    return (projectName + "_" + (exposureIdCounter + 1));
+                case "projectName":
+                    return projectName;
+                case "photometricFixture":
+                    return (exposurePopup ? tempPhotometricsFixtureType : photometricsFixtureType);
+                case "photometricDimmer":
+                    return (exposurePopup ? tempPhotometricDimmer.ToString() : photometricDimmer.ToString());
+                case "photometricZoom":
+                    return (exposurePopup ? tempPhotometricZoom.ToString() : photometricsZoom.ToString());
+                case "photometricDimZoom":
+                    return (exposurePopup ? ("Dim @ " + tempPhotometricDimmer.ToString() + "  -  Zoom @ " + tempPhotometricZoom.ToString()) : ("Dim @ " + photometricDimmer.ToString() + "  -  Zoom @ " + photometricsZoom.ToString()));
+   
+            }
+            return "Keyword query failed";
+        }
+
+
+
         public bool SaveToFile(string fileName)
         {
             try

@@ -146,6 +146,7 @@
             this.dataGridViewStills = new System.Windows.Forms.DataGridView();
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
+            this.webslateTimer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -225,40 +226,40 @@
             // openProjectToolStripMenuItem
             // 
             this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.openProjectToolStripMenuItem.Text = "Open Project";
             this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.OpenProjectToolStripMenuItem_Click);
             // 
             // saveProjectToolStripMenuItem
             // 
             this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.saveProjectToolStripMenuItem.Text = "Save Project";
             this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(161, 6);
             // 
             // exportVideoLogButton
             // 
             this.exportVideoLogButton.Name = "exportVideoLogButton";
-            this.exportVideoLogButton.Size = new System.Drawing.Size(180, 22);
+            this.exportVideoLogButton.Size = new System.Drawing.Size(164, 22);
             this.exportVideoLogButton.Text = "Export Video Log";
             this.exportVideoLogButton.Click += new System.EventHandler(this.ExportVideoLogButton_Click);
             // 
             // exportStillsLogButton
             // 
             this.exportStillsLogButton.Name = "exportStillsLogButton";
-            this.exportStillsLogButton.Size = new System.Drawing.Size(180, 22);
+            this.exportStillsLogButton.Size = new System.Drawing.Size(164, 22);
             this.exportStillsLogButton.Text = "Export Still Log";
             this.exportStillsLogButton.Click += new System.EventHandler(this.ExportStillsLogButton_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(161, 6);
             // 
             // toolStripMenuItem1
             // 
@@ -274,7 +275,7 @@
             this.autosaveNewFilesOn,
             this.autosaveNewFilesOff});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(164, 22);
             this.toolStripMenuItem1.Text = "Auto Save...";
             // 
             // enableAutoSaveButton
@@ -346,19 +347,19 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(161, 6);
             // 
             // aboutButton
             // 
             this.aboutButton.Name = "aboutButton";
-            this.aboutButton.Size = new System.Drawing.Size(180, 22);
+            this.aboutButton.Size = new System.Drawing.Size(164, 22);
             this.aboutButton.Text = "About";
             this.aboutButton.Click += new System.EventHandler(this.AboutButton_Click);
             // 
             // githubButton
             // 
             this.githubButton.Name = "githubButton";
-            this.githubButton.Size = new System.Drawing.Size(180, 22);
+            this.githubButton.Size = new System.Drawing.Size(164, 22);
             this.githubButton.Text = "GitHub";
             this.githubButton.Click += new System.EventHandler(this.GithubButton_Click);
             // 
@@ -1585,6 +1586,12 @@
             this.autosaveChecker.Interval = 1000;
             this.autosaveChecker.Tick += new System.EventHandler(this.AutosaveChecker_Tick);
             // 
+            // webslateTimer
+            // 
+            this.webslateTimer.Enabled = true;
+            this.webslateTimer.Interval = 500;
+            this.webslateTimer.Tick += new System.EventHandler(this.webslateTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1767,6 +1774,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem githubButton;
+        private System.Windows.Forms.Timer webslateTimer;
     }
 }
 

@@ -139,5 +139,10 @@ namespace ShotLog
                 this.Close();
             }
         }
+
+        private void webslateTimer_Tick(object sender, EventArgs e)
+        {
+            data.UpdateWebslateExposurePopup(notesBox1.Text, notesBox2.Text, notesBox3.Text, notesBox4.Text, notesBox5.Text, fixtureBox.Text, (int)dimmerBox.Value, (int)zoomBox.Value);
+        }
     }
 }
