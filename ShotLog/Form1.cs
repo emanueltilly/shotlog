@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ShotLog
 {
     public partial class Form1 : Form
@@ -420,6 +421,9 @@ namespace ShotLog
         {
             LoadGUIfromData();
             
+            new Task(() => { WebSlate.SimpleListenerExample(data); }).Start();
+
+
         }
 
         private void NewExposureButton_Click(object sender, EventArgs e)
