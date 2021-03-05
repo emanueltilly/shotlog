@@ -1588,7 +1588,6 @@
             // 
             // webslateTimer
             // 
-            this.webslateTimer.Enabled = true;
             this.webslateTimer.Interval = 500;
             this.webslateTimer.Tick += new System.EventHandler(this.webslateTimer_Tick);
             // 

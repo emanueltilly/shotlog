@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 
 namespace ShotLog
@@ -16,7 +17,7 @@ namespace ShotLog
     {
         ProjectData data = new ProjectData();
 
-        private bool exposurePopupOpenFlag = false;
+        
         
         
 
@@ -237,17 +238,18 @@ namespace ShotLog
         {
             SaveGUItoData();
 
-            exposurePopupOpenFlag = true;
+            
             
             ExposurePopup expoPopup = new ExposurePopup();
             expoPopup.SetProjectData(data); //Send project data to popup
             expoPopup.ShowDialog(); //Show popup and wait for popup to close
 
-            exposurePopupOpenFlag = false;
+            
 
             LoadGUIfromData();
 
-            
+            data.ClearWebslate();
+
 
         }
 
@@ -430,8 +432,13 @@ namespace ShotLog
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadGUIfromData();
+
+            //new Task(() => { WebSlate.SimpleListenerExample(data); }).Start();
+            //new Task(() => { WebSlate.RunServer(data); }).Start();
+            //WebSlate.RunServer(data);
+            Task.Run(() => WebSlate.RunServer(data));
             
-            new Task(() => { WebSlate.SimpleListenerExample(data); }).Start();
+
 
 
         }
@@ -589,11 +596,11 @@ namespace ShotLog
 
         private void webslateTimer_Tick(object sender, EventArgs e)
         {
-            Console.WriteLine("Flag enabled: " + exposurePopupOpenFlag);
-            if (exposurePopupOpenFlag != true)
-            {
+            
+            //if (exposurePopupOpenFlag != true)
+            //{
                 data.UpdateWebslateMain();
-            }
+            //}
             
         }
     }

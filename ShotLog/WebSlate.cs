@@ -4,11 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.IO;
+
 
 namespace ShotLog
 {
     class WebSlate
     {
+
+        public static void RunServer(ProjectData data)
+        {
+            
+
+            HttpListener server = new HttpListener();
+            server.Prefixes.Add("http://127.0.0.1/");
+            server.Prefixes.Add("http://localhost/");
+            server.Prefixes.Add("http://192.168.20.100/");
+
+            server.Start();
+
+            Console.WriteLine("Listening...");
+
+            while (true)
+            {
+                
+
+                HttpListenerContext context = server.GetContext();
+                HttpListenerResponse response = context.Response;
+
+                string page = GeneratePage(data.webslateRefresh, data.webslateTextsize, data.webslateField1, data.webslateField2, data.webslateField3, data.webslateField4, data.webslateField5);
+                
+                Console.WriteLine(data.webslateField1);
+
+                //TextReader tr = new StreamReader(page);
+                //string msg = tr.ReadToEnd();
+
+                byte[] buffer = Encoding.UTF8.GetBytes(page);
+
+                response.ContentLength64 = buffer.Length;
+                Stream st = response.OutputStream;
+                st.Write(buffer, 0, buffer.Length);
+
+                context.Response.Close();
+            }
+
+        }
+
+
+
+        /*
         // This example requires the System and System.Net namespaces.
             public static void SimpleListenerExample(ProjectData data){
 
@@ -61,8 +105,10 @@ namespace ShotLog
                 listener.Close();
 
             }
-            
-        }
+          }
+            */
+
+
 
         private static string GeneratePage(int refreshSpeed, int textSize, string field1, string field2, string field3, string field4, string field5)
         {

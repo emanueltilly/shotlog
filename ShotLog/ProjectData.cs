@@ -112,8 +112,8 @@ namespace ShotLog
         //WebSlate
         public int webslatePort = 8000;
 
-        public int webslateRefresh = 1;
-        public int webslateTextsize = 5;
+        public int webslateRefresh = 2;
+        public int webslateTextsize = 6;
 
         public string webslateContent1 = "note1";
         public string webslateContent2 = "note2";
@@ -138,7 +138,7 @@ namespace ShotLog
 
         public void UpdateWebslateMain()
         {
-
+            
             webslateField1 = GetWebslateData(false, webslateContent1);
             webslateField2 = GetWebslateData(false, webslateContent2);
             webslateField3 = GetWebslateData(false, webslateContent3);
@@ -148,6 +148,7 @@ namespace ShotLog
         }
         public void UpdateWebslateExposurePopup(string n1, string n2, string n3, string n4, string n5, string fixt, int dim, int zoom)
         {
+            
             tempNote1 = n1;
             tempNote2 = n2;
             tempNote3 = n3;
@@ -164,6 +165,15 @@ namespace ShotLog
             webslateField5 = GetWebslateData(true, webslateContent5);
 
 
+        }
+
+        public void ClearWebslate()
+        {
+            webslateField1 = "-";
+            webslateField2 = "-";
+            webslateField3 = "-";
+            webslateField4 = "-";
+            webslateField5 = "-";
         }
 
         private string GetWebslateData(bool exposurePopup, string query)
