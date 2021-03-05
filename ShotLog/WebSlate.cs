@@ -17,27 +17,27 @@ namespace ShotLog
             
 
             HttpListener server = new HttpListener();
-            server.Prefixes.Add("http://127.0.0.1/");
-            server.Prefixes.Add("http://localhost/");
-            server.Prefixes.Add("http://192.168.20.100/");
+            
+            server.Prefixes.Add(string.Format("http://*:" + data.webslatePort + "/"));
 
             server.Start();
 
-            Console.WriteLine("Listening...");
+            Console.WriteLine("Webserver listening on port " + data.webslatePort);
 
             while (true)
             {
-                
+                if (data.restartWebslateServerFlag == true)
+                {
+                    server.Prefixes.Clear();
+                    server.Prefixes.Add(string.Format("http://*:" + data.webslatePort + "/"));
+                    data.restartWebslateServerFlag = false;
+                }
 
                 HttpListenerContext context = server.GetContext();
                 HttpListenerResponse response = context.Response;
 
                 string page = GeneratePage(data.webslateRefresh, data.webslateTextsize, data.webslateField1, data.webslateField2, data.webslateField3, data.webslateField4, data.webslateField5);
-                
-                Console.WriteLine(data.webslateField1);
 
-                //TextReader tr = new StreamReader(page);
-                //string msg = tr.ReadToEnd();
 
                 byte[] buffer = Encoding.UTF8.GetBytes(page);
 
@@ -51,62 +51,6 @@ namespace ShotLog
         }
 
 
-
-        /*
-        // This example requires the System and System.Net namespaces.
-            public static void SimpleListenerExample(ProjectData data){
-
-            while(true)
-            {
-                
-                string[] prefixes = new string[1];
-                prefixes[0] = "http://*:8000/";
-
-                if (!HttpListener.IsSupported)
-                {
-                    Console.WriteLine("Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
-                    return;
-                }
-                // URI prefixes are required,
-                // for example "http://contoso.com:8080/index/".
-                if (prefixes == null || prefixes.Length == 0)
-                    throw new ArgumentException("prefixes");
-
-                // Create a listener.
-                HttpListener listener = new HttpListener();
-                // Add the prefixes.
-                foreach (string s in prefixes)
-                {
-                    listener.Prefixes.Add(s);
-                }
-                listener.Start();
-                Console.WriteLine("Listening...");
-                // Note: The GetContext method blocks while waiting for a request.
-                HttpListenerContext context = listener.GetContext();
-                HttpListenerRequest request = context.Request;
-                // Obtain a response object.
-                HttpListenerResponse response = context.Response;
-                // Construct a response.
-                string responseString = GeneratePage(data.webslateRefresh, data.webslateTextsize, data.webslateField1, data.webslateField2, data.webslateField3, data.webslateField4, data.webslateField5) +
-                    "Note 1: " + data.notesField1 +
-                    "<br>Note 2: " + data.notesField2 +
-                    "<br>Note 3: " + data.notesField3 +
-                    "<br>Note 4: " + data.notesField4 +
-                    "<br>Note 5: " + data.notesField5 +
-                    "</BODY></HTML>";
-                byte[] buffer = System.Text.Encoding.UTF8.GetBytes(responseString);
-                // Get a response stream and write the response to it.
-                response.ContentLength64 = buffer.Length;
-                System.IO.Stream output = response.OutputStream;
-                output.Write(buffer, 0, buffer.Length);
-                // You must close the output stream.
-                output.Close();
-                listener.Stop();
-                listener.Close();
-
-            }
-          }
-            */
 
 
 

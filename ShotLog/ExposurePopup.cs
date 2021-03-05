@@ -30,7 +30,7 @@ namespace ShotLog
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Commit();  
+                Commit();
             }
             if (e.KeyCode == Keys.F3)
             {
@@ -140,9 +140,44 @@ namespace ShotLog
             }
         }
 
-        private void webslateTimer_Tick(object sender, EventArgs e)
+        private void SaveWithoutCommit()
+        {
+            bool commitOK = (data.SaveWithoutCommit(
+                notesBox1.Text,
+                notesBox2.Text,
+                notesBox3.Text,
+                notesBox4.Text,
+                notesBox5.Text,
+                data.videoEnabled,
+                data.stillsEnabled,
+                fixtureBox.Text,
+                (int)luxBox.Value,
+                (int)distanceBox.Value,
+                (int)kelvinBox.Value,
+                (int)criBox.Value,
+                (int)zoomBox.Value,
+                (int)dimmerBox.Value,
+                (int)data.stillsShutterspeedBase
+                ));
+
+            if (commitOK != true)
+            {
+                MessageBox.Show("A problem occured when saving the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void WebslateTimer_Tick(object sender, EventArgs e)
         {
             data.UpdateWebslateExposurePopup(notesBox1.Text, notesBox2.Text, notesBox3.Text, notesBox4.Text, notesBox5.Text, fixtureBox.Text, (int)dimmerBox.Value, (int)zoomBox.Value);
+        }
+
+        private void saveNoCommitButton_Click(object sender, EventArgs e)
+        {
+            SaveWithoutCommit();
         }
     }
 }

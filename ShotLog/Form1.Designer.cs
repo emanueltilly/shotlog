@@ -52,6 +52,28 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutButton = new System.Windows.Forms.ToolStripMenuItem();
             this.githubButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdownButton = new System.Windows.Forms.ToolStripDropDownButton();
+            this.portToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslatePortMenu = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateUpdateMenu = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.fontSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateFontMenu = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.field1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdown1 = new System.Windows.Forms.ToolStripComboBox();
+            this.field2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdown2 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdown3 = new System.Windows.Forms.ToolStripComboBox();
+            this.field4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdown4 = new System.Windows.Forms.ToolStripComboBox();
+            this.field5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webslateDropdown5 = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.applyWebSlateSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.lastSavedLabel = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -147,6 +169,7 @@
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
             this.webslateTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -192,6 +215,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
+            this.webslateDropdownButton,
             this.toolStripSeparator3,
             this.lastSavedLabel,
             this.toolStripSeparator5,
@@ -362,6 +386,247 @@
             this.githubButton.Size = new System.Drawing.Size(164, 22);
             this.githubButton.Text = "GitHub";
             this.githubButton.Click += new System.EventHandler(this.GithubButton_Click);
+            // 
+            // webslateDropdownButton
+            // 
+            this.webslateDropdownButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.webslateDropdownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.portToolStripMenuItem,
+            this.webslatePortMenu,
+            this.toolStripMenuItem4,
+            this.toolStripSeparator8,
+            this.toolStripMenuItem3,
+            this.webslateUpdateMenu,
+            this.toolStripSeparator10,
+            this.fontSizeToolStripMenuItem,
+            this.webslateFontMenu,
+            this.toolStripSeparator9,
+            this.field1ToolStripMenuItem,
+            this.webslateDropdown1,
+            this.field2ToolStripMenuItem,
+            this.webslateDropdown2,
+            this.toolStripMenuItem2,
+            this.webslateDropdown3,
+            this.field4ToolStripMenuItem,
+            this.webslateDropdown4,
+            this.field5ToolStripMenuItem,
+            this.webslateDropdown5,
+            this.toolStripSeparator11,
+            this.applyWebSlateSettingsToolStripMenuItem});
+            this.webslateDropdownButton.Image = ((System.Drawing.Image)(resources.GetObject("webslateDropdownButton.Image")));
+            this.webslateDropdownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.webslateDropdownButton.Name = "webslateDropdownButton";
+            this.webslateDropdownButton.Size = new System.Drawing.Size(69, 22);
+            this.webslateDropdownButton.Text = "WebSlate";
+            this.webslateDropdownButton.ToolTipText = "Webslate";
+            // 
+            // portToolStripMenuItem
+            // 
+            this.portToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.portToolStripMenuItem.Name = "portToolStripMenuItem";
+            this.portToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.portToolStripMenuItem.Text = "Webserver Port:";
+            // 
+            // webslatePortMenu
+            // 
+            this.webslatePortMenu.Enabled = false;
+            this.webslatePortMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.webslatePortMenu.Name = "webslatePortMenu";
+            this.webslatePortMenu.Size = new System.Drawing.Size(100, 23);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(199, 6);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(202, 22);
+            this.toolStripMenuItem3.Text = "Updatespeed (sec):";
+            // 
+            // webslateUpdateMenu
+            // 
+            this.webslateUpdateMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.webslateUpdateMenu.Name = "webslateUpdateMenu";
+            this.webslateUpdateMenu.Size = new System.Drawing.Size(100, 23);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(199, 6);
+            // 
+            // fontSizeToolStripMenuItem
+            // 
+            this.fontSizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
+            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.fontSizeToolStripMenuItem.Text = "Font size:";
+            // 
+            // webslateFontMenu
+            // 
+            this.webslateFontMenu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.webslateFontMenu.Name = "webslateFontMenu";
+            this.webslateFontMenu.Size = new System.Drawing.Size(100, 23);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(199, 6);
+            // 
+            // field1ToolStripMenuItem
+            // 
+            this.field1ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.field1ToolStripMenuItem.Name = "field1ToolStripMenuItem";
+            this.field1ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field1ToolStripMenuItem.Text = "Field 1:";
+            // 
+            // webslateDropdown1
+            // 
+            this.webslateDropdown1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.webslateDropdown1.Items.AddRange(new object[] {
+            "Note 1",
+            "Note 2",
+            "Note 3",
+            "Note 4",
+            "Note 5",
+            "Exposure ID",
+            "Project Name",
+            "Photometrics Fixture",
+            "Photometrics Dimmer",
+            "Photometrics Zoom",
+            "Photometrics Dimmer & Zoom",
+            "Blank",
+            "Date & Time"});
+            this.webslateDropdown1.MaxDropDownItems = 20;
+            this.webslateDropdown1.Name = "webslateDropdown1";
+            this.webslateDropdown1.Size = new System.Drawing.Size(121, 23);
+            // 
+            // field2ToolStripMenuItem
+            // 
+            this.field2ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.field2ToolStripMenuItem.Name = "field2ToolStripMenuItem";
+            this.field2ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field2ToolStripMenuItem.Text = "Field 2:";
+            // 
+            // webslateDropdown2
+            // 
+            this.webslateDropdown2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.webslateDropdown2.Items.AddRange(new object[] {
+            "Note 1",
+            "Note 2",
+            "Note 3",
+            "Note 4",
+            "Note 5",
+            "Exposure ID",
+            "Project Name",
+            "Photometrics Fixture",
+            "Photometrics Dimmer",
+            "Photometrics Zoom",
+            "Photometrics Dimmer & Zoom",
+            "Blank",
+            "Date & Time"});
+            this.webslateDropdown2.MaxDropDownItems = 20;
+            this.webslateDropdown2.Name = "webslateDropdown2";
+            this.webslateDropdown2.Size = new System.Drawing.Size(121, 23);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 22);
+            this.toolStripMenuItem2.Text = "Field 3:";
+            // 
+            // webslateDropdown3
+            // 
+            this.webslateDropdown3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.webslateDropdown3.Items.AddRange(new object[] {
+            "Note 1",
+            "Note 2",
+            "Note 3",
+            "Note 4",
+            "Note 5",
+            "Exposure ID",
+            "Project Name",
+            "Photometrics Fixture",
+            "Photometrics Dimmer",
+            "Photometrics Zoom",
+            "Photometrics Dimmer & Zoom",
+            "Blank",
+            "Date & Time"});
+            this.webslateDropdown3.MaxDropDownItems = 20;
+            this.webslateDropdown3.Name = "webslateDropdown3";
+            this.webslateDropdown3.Size = new System.Drawing.Size(121, 23);
+            // 
+            // field4ToolStripMenuItem
+            // 
+            this.field4ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.field4ToolStripMenuItem.Name = "field4ToolStripMenuItem";
+            this.field4ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field4ToolStripMenuItem.Text = "Field 4:";
+            // 
+            // webslateDropdown4
+            // 
+            this.webslateDropdown4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.webslateDropdown4.Items.AddRange(new object[] {
+            "Note 1",
+            "Note 2",
+            "Note 3",
+            "Note 4",
+            "Note 5",
+            "Exposure ID",
+            "Project Name",
+            "Photometrics Fixture",
+            "Photometrics Dimmer",
+            "Photometrics Zoom",
+            "Photometrics Dimmer & Zoom",
+            "Blank",
+            "Date & Time"});
+            this.webslateDropdown4.MaxDropDownItems = 20;
+            this.webslateDropdown4.Name = "webslateDropdown4";
+            this.webslateDropdown4.Size = new System.Drawing.Size(121, 23);
+            // 
+            // field5ToolStripMenuItem
+            // 
+            this.field5ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.field5ToolStripMenuItem.Name = "field5ToolStripMenuItem";
+            this.field5ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field5ToolStripMenuItem.Text = "Field 5:";
+            // 
+            // webslateDropdown5
+            // 
+            this.webslateDropdown5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.webslateDropdown5.Items.AddRange(new object[] {
+            "Note 1",
+            "Note 2",
+            "Note 3",
+            "Note 4",
+            "Note 5",
+            "Exposure ID",
+            "Project Name",
+            "Photometrics Fixture",
+            "Photometrics Dimmer",
+            "Photometrics Zoom",
+            "Photometrics Dimmer & Zoom",
+            "Blank",
+            "Date & Time"});
+            this.webslateDropdown5.MaxDropDownItems = 20;
+            this.webslateDropdown5.Name = "webslateDropdown5";
+            this.webslateDropdown5.Size = new System.Drawing.Size(121, 23);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(199, 6);
+            // 
+            // applyWebSlateSettingsToolStripMenuItem
+            // 
+            this.applyWebSlateSettingsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applyWebSlateSettingsToolStripMenuItem.Name = "applyWebSlateSettingsToolStripMenuItem";
+            this.applyWebSlateSettingsToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.applyWebSlateSettingsToolStripMenuItem.Text = "Apply WebSlate Settings";
+            this.applyWebSlateSettingsToolStripMenuItem.Click += new System.EventHandler(this.ApplyWebSlateSettingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -1588,8 +1853,16 @@
             // 
             // webslateTimer
             // 
+            this.webslateTimer.Enabled = true;
             this.webslateTimer.Interval = 500;
-            this.webslateTimer.Tick += new System.EventHandler(this.webslateTimer_Tick);
+            this.webslateTimer.Tick += new System.EventHandler(this.WebslateTimer_Tick);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItem4.Text = "Open in browser...";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // Form1
             // 
@@ -1774,6 +2047,29 @@
         private System.Windows.Forms.ToolStripMenuItem aboutButton;
         private System.Windows.Forms.ToolStripMenuItem githubButton;
         private System.Windows.Forms.Timer webslateTimer;
+        private System.Windows.Forms.ToolStripDropDownButton webslateDropdownButton;
+        private System.Windows.Forms.ToolStripMenuItem portToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox webslatePortMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStripMenuItem fontSizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox webslateFontMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        private System.Windows.Forms.ToolStripMenuItem field1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox webslateDropdown1;
+        private System.Windows.Forms.ToolStripMenuItem field2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox webslateDropdown2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripComboBox webslateDropdown3;
+        private System.Windows.Forms.ToolStripMenuItem field4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox webslateDropdown4;
+        private System.Windows.Forms.ToolStripMenuItem field5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox webslateDropdown5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripTextBox webslateUpdateMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
+        private System.Windows.Forms.ToolStripMenuItem applyWebSlateSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
     }
 }
 
