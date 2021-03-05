@@ -10,6 +10,9 @@ ShotLog is tailor made for fixture shootouts. Features include Photometric data 
 **CSV Export**<br>
 While ShotLog is a great tool during produciton, the post production workflow might need something different. ShotLog can export the logs to CSV files for easy distribution between people and softwares.
 
+**WebSlate**<br>
+The WebSlate feature turns your external monitor, tablet, phone or computer into a digital slate displaying notes, project name, exposure IDs, time of day and more in realtime in your browser. **NOTE! To access the WebSlate from another device you will need to disable the windows firewall on the computer running ShotLog!**
+
 ## Screenshots
 **Main window**<br>
 ![Main window](screenshots/shotlog_screenshot_mainwindow.png)
