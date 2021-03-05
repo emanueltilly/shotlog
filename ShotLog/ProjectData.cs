@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Timers;
 
 namespace ShotLog
 {
@@ -108,6 +109,149 @@ namespace ShotLog
         public string photometricsFixtureType = "Arri D12";
 
 
+
+        //WebSlate
+        public bool restartWebslateServerFlag = false;
+
+        public int webslatePort = 5588;
+
+        public int webslateRefresh = 5;
+        public int webslateTextsize = 6;
+
+        public string webslateTimestamp = "";
+
+        public int webslateIndex1 = 0;
+        public int webslateIndex2 = 1;
+        public int webslateIndex3 = 2;
+        public int webslateIndex4 = 6;
+        public int webslateIndex5 = 12;
+
+        public string webslateField1 = "";
+        public string webslateField2 = "";
+        public string webslateField3 = "";
+        public string webslateField4 = "";
+        public string webslateField5 = "";
+
+        public string tempNote1 = "";
+        public string tempNote2 = "";
+        public string tempNote3 = "";
+        public string tempNote4 = "";
+        public string tempNote5 = "";
+
+        public string tempPhotometricsFixtureType = "";
+        public int tempPhotometricDimmer = 0;
+        public int tempPhotometricZoom = 0;
+
+        public void UpdateWebslateMain()
+        {
+            
+            webslateField1 = GetWebslateData(false, webslateIndex1);
+            webslateField2 = GetWebslateData(false, webslateIndex2);
+            webslateField3 = GetWebslateData(false, webslateIndex3);
+            webslateField4 = GetWebslateData(false, webslateIndex4);
+            webslateField5 = GetWebslateData(false, webslateIndex5);
+
+        }
+        public void UpdateWebslateExposurePopup(string n1, string n2, string n3, string n4, string n5, string fixt, int dim, int zoom)
+        {
+            
+            tempNote1 = n1;
+            tempNote2 = n2;
+            tempNote3 = n3;
+            tempNote4 = n4;
+            tempNote5 = n5;
+            tempPhotometricsFixtureType = fixt;
+            tempPhotometricDimmer = dim;
+            tempPhotometricZoom = zoom;
+
+            webslateField1 = GetWebslateData(true, webslateIndex1);
+            webslateField2 = GetWebslateData(true, webslateIndex2);
+            webslateField3 = GetWebslateData(true, webslateIndex3);
+            webslateField4 = GetWebslateData(true, webslateIndex4);
+            webslateField5 = GetWebslateData(true, webslateIndex5);
+
+
+        }
+
+
+        private string GetWebslateData(bool exposurePopup, int index)
+        {
+            string query = "";
+            switch (index)
+            {
+                case 0:
+                    query = "note1";
+                    break;
+                case 1:
+                    query = "note2";
+                    break;
+                case 2:
+                    query = "note3";
+                    break;
+                case 3:
+                    query = "note4";
+                    break;
+                case 4:
+                    query = "note5";
+                    break;
+                case 5:
+                    query = "exposureID";
+                    break;
+                case 6:
+                    query = "projectName";
+                    break;
+                case 7:
+                    query = "photometricFixture";
+                    break;
+                case 8:
+                    query = "photometricDimmer";
+                    break;
+                case 9:
+                    query = "photometricZoom";
+                    break;
+                case 10:
+                    query = "photometricDimZoom";
+                    break;
+                case 11:
+                    query = "blank";
+                    break;
+                case 12:
+                    query = "datetime";
+                    break;
+            }
+
+            switch (query)
+            {
+                case "blank":
+                    return " ";
+                case "note1":
+                    return (exposurePopup ? tempNote1 : notesField1);
+                case "note2":
+                    return (exposurePopup ? tempNote2 : notesField2);
+                case "note3":
+                    return (exposurePopup ? tempNote3 : notesField3);
+                case "note4":
+                    return (exposurePopup ? tempNote4 : notesField4);
+                case "note5":
+                    return (exposurePopup ? tempNote5 : notesField5);
+                case "exposureID":
+                    return (projectName + "_" + (exposureIdCounter + 1));
+                case "projectName":
+                    return projectName;
+                case "photometricFixture":
+                    return (exposurePopup ? tempPhotometricsFixtureType : photometricsFixtureType);
+                case "photometricDimmer":
+                    return (exposurePopup ? tempPhotometricDimmer.ToString() : photometricDimmer.ToString());
+                case "photometricZoom":
+                    return (exposurePopup ? tempPhotometricZoom.ToString() : photometricsZoom.ToString());
+                case "photometricDimZoom":
+                    return (exposurePopup ? ("Dim @ " + tempPhotometricDimmer.ToString() + "  -  Zoom @ " + tempPhotometricZoom.ToString()) : ("Dim @ " + photometricDimmer.ToString() + "  -  Zoom @ " + photometricsZoom.ToString()));
+                case "datetime":
+                    return string.Format("{0:HH:mm:ss}", DateTime.Now);
+
+            }
+            return "Keyword query failed";
+        }
 
         public bool SaveToFile(string fileName)
         {
@@ -518,6 +662,50 @@ namespace ShotLog
             return true;
 
         }
+
+        public bool SaveWithoutCommit(
+            string note1,
+            string note2,
+            string note3,
+            string note4,
+            string note5,
+            bool videoCommit,
+            bool stillsCommit,
+            string photoFixture,
+            int photoLUX,
+            int photoLUXdistance,
+            int photoKelvin,
+            int photoCRI,
+            int photoZoom,
+            int photoDimmer,
+            int stillShutterspeed
+
+            )
+        {
+            //Update data
+            videoEnabled = videoCommit;
+            stillsEnabled = stillsCommit;
+
+            notesField1 = note1;
+            notesField2 = note2;
+            notesField3 = note3;
+            notesField4 = note4;
+            notesField5 = note5;
+
+            photometricsFixtureType = photoFixture;
+            photometricsLUX = photoLUX;
+            photometricsLUXdistance = photoLUXdistance;
+            photometricsKelvin = photoKelvin;
+            photometricsCRI = photoCRI;
+            photometricsZoom = photoZoom;
+            photometricDimmer = photoDimmer;
+
+            //Return OK
+            return true;
+
+        }
+
+
 
         private int RecursiveDivision(int sourceNumber, int divideXtimes)
         {

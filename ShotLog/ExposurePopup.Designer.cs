@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExposurePopup));
             this.label1 = new System.Windows.Forms.Label();
             this.notesBox1 = new System.Windows.Forms.TextBox();
@@ -64,6 +65,8 @@
             this.fixtureBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webslateTimer = new System.Windows.Forms.Timer(this.components);
+            this.saveNoCommitButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dimmerBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zoomBox)).BeginInit();
@@ -450,16 +453,34 @@
             this.groupBox2.Controls.Add(this.stillPreview1);
             this.groupBox2.Location = new System.Drawing.Point(341, 331);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(300, 238);
+            this.groupBox2.Size = new System.Drawing.Size(300, 192);
             this.groupBox2.TabIndex = 44;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filename preview";
+            // 
+            // webslateTimer
+            // 
+            this.webslateTimer.Enabled = true;
+            this.webslateTimer.Interval = 300;
+            this.webslateTimer.Tick += new System.EventHandler(this.WebslateTimer_Tick);
+            // 
+            // saveNoCommitButton
+            // 
+            this.saveNoCommitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveNoCommitButton.Location = new System.Drawing.Point(341, 531);
+            this.saveNoCommitButton.Name = "saveNoCommitButton";
+            this.saveNoCommitButton.Size = new System.Drawing.Size(300, 38);
+            this.saveNoCommitButton.TabIndex = 45;
+            this.saveNoCommitButton.Text = "Save data without commit";
+            this.saveNoCommitButton.UseVisualStyleBackColor = true;
+            this.saveNoCommitButton.Click += new System.EventHandler(this.saveNoCommitButton_Click);
             // 
             // ExposurePopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(659, 680);
+            this.Controls.Add(this.saveNoCommitButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.commitShotButton);
@@ -533,5 +554,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.NumericUpDown luxBox;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Timer webslateTimer;
+        private System.Windows.Forms.Button saveNoCommitButton;
     }
 }

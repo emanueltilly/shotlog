@@ -8,14 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+
 
 namespace ShotLog
 {
     public partial class Form1 : Form
     {
         ProjectData data = new ProjectData();
-        
-        
+
+        bool exposurePopupOpenFlag = false;
+
+
+
 
         public Form1()
         {
@@ -89,6 +94,18 @@ namespace ShotLog
             videoBroadcastBlackRed.Value = data.videoStudioRedBlack;
             videoBroadcastBlackGreen.Value = data.videoStudioGreenBlack;
             videoBroadcastBlackBlue.Value = data.videoStudioBlueBlack;
+
+            //Webslate
+            webslateDropdown1.SelectedIndex = data.webslateIndex1;
+            webslateDropdown2.SelectedIndex = data.webslateIndex2;
+            webslateDropdown3.SelectedIndex = data.webslateIndex3;
+            webslateDropdown4.SelectedIndex = data.webslateIndex4;
+            webslateDropdown5.SelectedIndex = data.webslateIndex5;
+
+            webslateFontMenu.Text = data.webslateTextsize.ToString();
+            webslateUpdateMenu.Text = data.webslateRefresh.ToString();
+            webslatePortMenu.Text = data.webslatePort.ToString();
+
 
             //Update enabled
             UpdateGUIenabled();
@@ -224,6 +241,7 @@ namespace ShotLog
                 data = ProjectData.LoadFromFile(openDialog.FileName);
                 data.savePath = openDialog.FileName;
                 LoadGUIfromData();
+                data.restartWebslateServerFlag = true;
                 autosaveTimer.Interval = data.autoSaveDuration;
                 autosaveTimer.Start();
 
@@ -233,12 +251,19 @@ namespace ShotLog
         private void NewExposure()
         {
             SaveGUItoData();
-            
+            exposurePopupOpenFlag = true;
+
+
             ExposurePopup expoPopup = new ExposurePopup();
             expoPopup.SetProjectData(data); //Send project data to popup
             expoPopup.ShowDialog(); //Show popup and wait for popup to close
 
+            expoPopup.Dispose();
+            exposurePopupOpenFlag = false;
             LoadGUIfromData();
+
+            //data.ClearWebslate();
+
 
         }
 
@@ -398,6 +423,53 @@ namespace ShotLog
             Process.Start(sourceUrl);
         }
 
+        private void SetWebslateSettings()
+        {
+            data.webslateIndex1 = webslateDropdown1.SelectedIndex;
+            data.webslateIndex2 = webslateDropdown2.SelectedIndex;
+            data.webslateIndex3 = webslateDropdown3.SelectedIndex;
+            data.webslateIndex4 = webslateDropdown4.SelectedIndex;
+            data.webslateIndex5 = webslateDropdown5.SelectedIndex;
+
+            try
+            {
+                if (data.webslatePort != int.Parse(webslatePortMenu.Text)) { data.restartWebslateServerFlag = true; }
+                data.webslatePort = int.Parse(webslatePortMenu.Text);
+            } catch
+            {
+                MessageBox.Show(("Error parsing " + webslatePortMenu.Text + " as a webserver port number. Setting port to default 5588..."), "Error parsing settings");
+                if (data.webslatePort != 5588) { data.restartWebslateServerFlag = true; }
+                data.webslatePort = 5588;
+            }
+
+            try
+            {
+                data.webslateRefresh = int.Parse(webslateUpdateMenu.Text);
+            }
+            catch
+            {
+                MessageBox.Show(("Error parsing " + webslateUpdateMenu.Text + " as a website refresh speed in seconds. Setting refresh speed to default 5..."), "Error parsing settings");
+                data.webslateRefresh = 5;
+            }
+
+            try
+            {
+                data.webslateTextsize = int.Parse(webslateFontMenu.Text);
+            }
+            catch
+            {
+                MessageBox.Show(("Error parsing " + webslateFontMenu.Text + " as a fontsize. Setting textsize  to default 6..."), "Error parsing settings");
+                data.webslateTextsize = 6;
+            }
+
+
+
+
+            
+        }
+
+        
+
         private void SaveProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveProject();
@@ -419,7 +491,16 @@ namespace ShotLog
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadGUIfromData();
+
+
+            //new Task(() => { WebSlate.SimpleListenerExample(data); }).Start();
+            //new Task(() => { WebSlate.RunServer(data); }).Start();
+            //WebSlate.RunServer(data);
+            Task.Run(() => WebSlate.RunServer(data));
             
+
+
+
         }
 
         private void NewExposureButton_Click(object sender, EventArgs e)
@@ -571,6 +652,26 @@ namespace ShotLog
         private void AboutButton_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ShotLog\n\nVersion 1.0.0.0\n\nLicensed under the Apache 2.0 license.", "ShotLog", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void WebslateTimer_Tick(object sender, EventArgs e)
+        {
+            
+            if (exposurePopupOpenFlag != true)
+            {
+                data.UpdateWebslateMain();
+            }
+            
+        }
+
+        private void ApplyWebSlateSettingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetWebslateSettings();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            OpenInBrowser(("http://localhost:" + data.webslatePort));
         }
     }
 }
