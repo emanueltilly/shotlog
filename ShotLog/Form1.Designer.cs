@@ -55,6 +55,7 @@
             this.webslateDropdownButton = new System.Windows.Forms.ToolStripDropDownButton();
             this.portToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webslatePortMenu = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.webslateUpdateMenu = new System.Windows.Forms.ToolStripTextBox();
@@ -169,7 +170,6 @@
             this.autosaveTimer = new System.Windows.Forms.Timer(this.components);
             this.autosaveChecker = new System.Windows.Forms.Timer(this.components);
             this.webslateTimer = new System.Windows.Forms.Timer(this.components);
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPageSettings.SuspendLayout();
@@ -424,7 +424,7 @@
             // 
             this.portToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.portToolStripMenuItem.Name = "portToolStripMenuItem";
-            this.portToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.portToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.portToolStripMenuItem.Text = "Webserver Port:";
             // 
             // webslatePortMenu
@@ -434,17 +434,24 @@
             this.webslatePortMenu.Name = "webslatePortMenu";
             this.webslatePortMenu.Size = new System.Drawing.Size(100, 23);
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItem4.Text = "Open in browser...";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.ToolStripMenuItem4_Click);
+            // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(208, 6);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(202, 22);
-            this.toolStripMenuItem3.Text = "Updatespeed (sec):";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(211, 22);
+            this.toolStripMenuItem3.Text = "Refresh Rate (sec):";
             // 
             // webslateUpdateMenu
             // 
@@ -455,14 +462,14 @@
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(208, 6);
             // 
             // fontSizeToolStripMenuItem
             // 
             this.fontSizeToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
-            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.fontSizeToolStripMenuItem.Text = "Font size:";
+            this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.fontSizeToolStripMenuItem.Text = "Font Size:";
             // 
             // webslateFontMenu
             // 
@@ -473,13 +480,13 @@
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(208, 6);
             // 
             // field1ToolStripMenuItem
             // 
             this.field1ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.field1ToolStripMenuItem.Name = "field1ToolStripMenuItem";
-            this.field1ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field1ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.field1ToolStripMenuItem.Text = "Field 1:";
             // 
             // webslateDropdown1
@@ -507,7 +514,7 @@
             // 
             this.field2ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.field2ToolStripMenuItem.Name = "field2ToolStripMenuItem";
-            this.field2ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field2ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.field2ToolStripMenuItem.Text = "Field 2:";
             // 
             // webslateDropdown2
@@ -535,7 +542,7 @@
             // 
             this.toolStripMenuItem2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(211, 22);
             this.toolStripMenuItem2.Text = "Field 3:";
             // 
             // webslateDropdown3
@@ -563,7 +570,7 @@
             // 
             this.field4ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.field4ToolStripMenuItem.Name = "field4ToolStripMenuItem";
-            this.field4ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field4ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.field4ToolStripMenuItem.Text = "Field 4:";
             // 
             // webslateDropdown4
@@ -591,7 +598,7 @@
             // 
             this.field5ToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.field5ToolStripMenuItem.Name = "field5ToolStripMenuItem";
-            this.field5ToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.field5ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.field5ToolStripMenuItem.Text = "Field 5:";
             // 
             // webslateDropdown5
@@ -618,7 +625,7 @@
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(199, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(208, 6);
             // 
             // applyWebSlateSettingsToolStripMenuItem
             // 
@@ -697,7 +704,7 @@
             this.newExposureButton.Location = new System.Drawing.Point(620, 281);
             this.newExposureButton.Name = "newExposureButton";
             this.newExposureButton.Size = new System.Drawing.Size(300, 202);
-            this.newExposureButton.TabIndex = 4;
+            this.newExposureButton.TabIndex = 402;
             this.newExposureButton.Text = "NEW EXPOSURE (F1)";
             this.newExposureButton.UseVisualStyleBackColor = true;
             this.newExposureButton.Click += new System.EventHandler(this.NewExposureButton_Click);
@@ -707,7 +714,7 @@
             this.applySettingsButton.Location = new System.Drawing.Point(314, 429);
             this.applySettingsButton.Name = "applySettingsButton";
             this.applySettingsButton.Size = new System.Drawing.Size(300, 54);
-            this.applySettingsButton.TabIndex = 3;
+            this.applySettingsButton.TabIndex = 401;
             this.applySettingsButton.Text = "Apply Settings";
             this.applySettingsButton.UseVisualStyleBackColor = true;
             this.applySettingsButton.Click += new System.EventHandler(this.ApplySettingsButton_Click);
@@ -764,7 +771,7 @@
             this.stillsBracketingOrder.Location = new System.Drawing.Point(141, 323);
             this.stillsBracketingOrder.Name = "stillsBracketingOrder";
             this.stillsBracketingOrder.Size = new System.Drawing.Size(153, 21);
-            this.stillsBracketingOrder.TabIndex = 40;
+            this.stillsBracketingOrder.TabIndex = 113;
             // 
             // stillsBrackeringStops
             // 
@@ -781,7 +788,7 @@
             0});
             this.stillsBrackeringStops.Name = "stillsBrackeringStops";
             this.stillsBrackeringStops.Size = new System.Drawing.Size(153, 20);
-            this.stillsBrackeringStops.TabIndex = 39;
+            this.stillsBrackeringStops.TabIndex = 112;
             this.stillsBrackeringStops.Value = new decimal(new int[] {
             1,
             0,
@@ -803,7 +810,7 @@
             this.stillsBrackeringEnabled.Location = new System.Drawing.Point(9, 272);
             this.stillsBrackeringEnabled.Name = "stillsBrackeringEnabled";
             this.stillsBrackeringEnabled.Size = new System.Drawing.Size(202, 17);
-            this.stillsBrackeringEnabled.TabIndex = 28;
+            this.stillsBrackeringEnabled.TabIndex = 111;
             this.stillsBrackeringEnabled.Text = "Bracketing / Exposure Compensation";
             this.stillsBrackeringEnabled.UseVisualStyleBackColor = true;
             this.stillsBrackeringEnabled.CheckedChanged += new System.EventHandler(this.StillsBrackeringEnabled_CheckedChanged);
@@ -823,7 +830,7 @@
             0});
             this.stillsShutterSpeed.Name = "stillsShutterSpeed";
             this.stillsShutterSpeed.Size = new System.Drawing.Size(153, 20);
-            this.stillsShutterSpeed.TabIndex = 37;
+            this.stillsShutterSpeed.TabIndex = 110;
             this.stillsShutterSpeed.Value = new decimal(new int[] {
             1,
             0,
@@ -863,7 +870,7 @@
             0});
             this.stillsNextFileIndex.Name = "stillsNextFileIndex";
             this.stillsNextFileIndex.Size = new System.Drawing.Size(153, 20);
-            this.stillsNextFileIndex.TabIndex = 33;
+            this.stillsNextFileIndex.TabIndex = 104;
             this.stillsNextFileIndex.Value = new decimal(new int[] {
             1,
             0,
@@ -885,7 +892,7 @@
             0});
             this.stillsISO.Name = "stillsISO";
             this.stillsISO.Size = new System.Drawing.Size(153, 20);
-            this.stillsISO.TabIndex = 35;
+            this.stillsISO.TabIndex = 109;
             this.stillsISO.Value = new decimal(new int[] {
             1,
             0,
@@ -897,7 +904,7 @@
             this.stillsCameraName.Location = new System.Drawing.Point(141, 108);
             this.stillsCameraName.Name = "stillsCameraName";
             this.stillsCameraName.Size = new System.Drawing.Size(153, 20);
-            this.stillsCameraName.TabIndex = 28;
+            this.stillsCameraName.TabIndex = 105;
             // 
             // label30
             // 
@@ -923,7 +930,7 @@
             0});
             this.stillsFilenameIndexLength.Name = "stillsFilenameIndexLength";
             this.stillsFilenameIndexLength.Size = new System.Drawing.Size(153, 20);
-            this.stillsFilenameIndexLength.TabIndex = 31;
+            this.stillsFilenameIndexLength.TabIndex = 103;
             this.stillsFilenameIndexLength.Value = new decimal(new int[] {
             1,
             0,
@@ -945,7 +952,7 @@
             0});
             this.stillsWhitebalance.Name = "stillsWhitebalance";
             this.stillsWhitebalance.Size = new System.Drawing.Size(153, 20);
-            this.stillsWhitebalance.TabIndex = 33;
+            this.stillsWhitebalance.TabIndex = 108;
             this.stillsWhitebalance.Value = new decimal(new int[] {
             1,
             0,
@@ -975,7 +982,7 @@
             this.stillsFilenamePrefix.Location = new System.Drawing.Point(141, 30);
             this.stillsFilenamePrefix.Name = "stillsFilenamePrefix";
             this.stillsFilenamePrefix.Size = new System.Drawing.Size(153, 20);
-            this.stillsFilenamePrefix.TabIndex = 28;
+            this.stillsFilenamePrefix.TabIndex = 102;
             // 
             // stillsFocalLength
             // 
@@ -992,7 +999,7 @@
             0});
             this.stillsFocalLength.Name = "stillsFocalLength";
             this.stillsFocalLength.Size = new System.Drawing.Size(153, 20);
-            this.stillsFocalLength.TabIndex = 31;
+            this.stillsFocalLength.TabIndex = 107;
             this.stillsFocalLength.Value = new decimal(new int[] {
             1,
             0,
@@ -1033,7 +1040,7 @@
             0});
             this.stillsAperture.Name = "stillsAperture";
             this.stillsAperture.Size = new System.Drawing.Size(153, 20);
-            this.stillsAperture.TabIndex = 29;
+            this.stillsAperture.TabIndex = 106;
             this.stillsAperture.Value = new decimal(new int[] {
             1,
             0,
@@ -1125,7 +1132,7 @@
             -2147483648});
             this.videoBroadcastBlackBlue.Name = "videoBroadcastBlackBlue";
             this.videoBroadcastBlackBlue.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastBlackBlue.TabIndex = 43;
+            this.videoBroadcastBlackBlue.TabIndex = 311;
             this.videoBroadcastBlackBlue.Value = new decimal(new int[] {
             50,
             0,
@@ -1142,7 +1149,7 @@
             -2147483648});
             this.videoBroadcastBlackGreen.Name = "videoBroadcastBlackGreen";
             this.videoBroadcastBlackGreen.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastBlackGreen.TabIndex = 42;
+            this.videoBroadcastBlackGreen.TabIndex = 310;
             this.videoBroadcastBlackGreen.Value = new decimal(new int[] {
             50,
             0,
@@ -1159,7 +1166,7 @@
             -2147483648});
             this.videoBroadcastBlackRed.Name = "videoBroadcastBlackRed";
             this.videoBroadcastBlackRed.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastBlackRed.TabIndex = 41;
+            this.videoBroadcastBlackRed.TabIndex = 309;
             this.videoBroadcastBlackRed.Value = new decimal(new int[] {
             50,
             0,
@@ -1185,7 +1192,7 @@
             -2147483648});
             this.videoBroadcastGainBlue.Name = "videoBroadcastGainBlue";
             this.videoBroadcastGainBlue.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastGainBlue.TabIndex = 39;
+            this.videoBroadcastGainBlue.TabIndex = 308;
             this.videoBroadcastGainBlue.Value = new decimal(new int[] {
             50,
             0,
@@ -1202,7 +1209,7 @@
             -2147483648});
             this.videoBroadcastGainGreen.Name = "videoBroadcastGainGreen";
             this.videoBroadcastGainGreen.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastGainGreen.TabIndex = 38;
+            this.videoBroadcastGainGreen.TabIndex = 307;
             this.videoBroadcastGainGreen.Value = new decimal(new int[] {
             50,
             0,
@@ -1219,7 +1226,7 @@
             -2147483648});
             this.videoBroadcastGainRed.Name = "videoBroadcastGainRed";
             this.videoBroadcastGainRed.Size = new System.Drawing.Size(50, 20);
-            this.videoBroadcastGainRed.TabIndex = 37;
+            this.videoBroadcastGainRed.TabIndex = 306;
             this.videoBroadcastGainRed.Value = new decimal(new int[] {
             50,
             0,
@@ -1254,7 +1261,7 @@
             -2147483648});
             this.videoBroadcastTint.Name = "videoBroadcastTint";
             this.videoBroadcastTint.Size = new System.Drawing.Size(153, 20);
-            this.videoBroadcastTint.TabIndex = 35;
+            this.videoBroadcastTint.TabIndex = 304;
             this.videoBroadcastTint.Value = new decimal(new int[] {
             50,
             0,
@@ -1266,7 +1273,7 @@
             this.videoBroadcastFilter.Location = new System.Drawing.Point(141, 131);
             this.videoBroadcastFilter.Name = "videoBroadcastFilter";
             this.videoBroadcastFilter.Size = new System.Drawing.Size(153, 20);
-            this.videoBroadcastFilter.TabIndex = 28;
+            this.videoBroadcastFilter.TabIndex = 305;
             // 
             // label18
             // 
@@ -1287,7 +1294,7 @@
             -2147483648});
             this.videoBroadcastSaturation.Name = "videoBroadcastSaturation";
             this.videoBroadcastSaturation.Size = new System.Drawing.Size(153, 20);
-            this.videoBroadcastSaturation.TabIndex = 33;
+            this.videoBroadcastSaturation.TabIndex = 303;
             this.videoBroadcastSaturation.Value = new decimal(new int[] {
             50,
             0,
@@ -1313,7 +1320,7 @@
             -2147483648});
             this.videoBroadcastGain.Name = "videoBroadcastGain";
             this.videoBroadcastGain.Size = new System.Drawing.Size(153, 20);
-            this.videoBroadcastGain.TabIndex = 31;
+            this.videoBroadcastGain.TabIndex = 302;
             this.videoBroadcastGain.Value = new decimal(new int[] {
             50,
             0,
@@ -1339,7 +1346,7 @@
             -2147483648});
             this.videoBroadcastMasterBlack.Name = "videoBroadcastMasterBlack";
             this.videoBroadcastMasterBlack.Size = new System.Drawing.Size(153, 20);
-            this.videoBroadcastMasterBlack.TabIndex = 29;
+            this.videoBroadcastMasterBlack.TabIndex = 301;
             this.videoBroadcastMasterBlack.Value = new decimal(new int[] {
             50,
             0,
@@ -1407,7 +1414,7 @@
             0});
             this.videoShutterspeed.Name = "videoShutterspeed";
             this.videoShutterspeed.Size = new System.Drawing.Size(153, 20);
-            this.videoShutterspeed.TabIndex = 27;
+            this.videoShutterspeed.TabIndex = 215;
             this.videoShutterspeed.Value = new decimal(new int[] {
             1,
             0,
@@ -1438,7 +1445,7 @@
             0});
             this.videoISO.Name = "videoISO";
             this.videoISO.Size = new System.Drawing.Size(153, 20);
-            this.videoISO.TabIndex = 25;
+            this.videoISO.TabIndex = 214;
             this.videoISO.Value = new decimal(new int[] {
             1,
             0,
@@ -1469,7 +1476,7 @@
             0});
             this.videoWhitebalance.Name = "videoWhitebalance";
             this.videoWhitebalance.Size = new System.Drawing.Size(153, 20);
-            this.videoWhitebalance.TabIndex = 23;
+            this.videoWhitebalance.TabIndex = 213;
             this.videoWhitebalance.Value = new decimal(new int[] {
             1,
             0,
@@ -1500,7 +1507,7 @@
             0});
             this.videoFocalLength.Name = "videoFocalLength";
             this.videoFocalLength.Size = new System.Drawing.Size(153, 20);
-            this.videoFocalLength.TabIndex = 21;
+            this.videoFocalLength.TabIndex = 212;
             this.videoFocalLength.Value = new decimal(new int[] {
             1,
             0,
@@ -1532,7 +1539,7 @@
             0});
             this.videoAperture.Name = "videoAperture";
             this.videoAperture.Size = new System.Drawing.Size(153, 20);
-            this.videoAperture.TabIndex = 19;
+            this.videoAperture.TabIndex = 211;
             this.videoAperture.Value = new decimal(new int[] {
             1,
             0,
@@ -1562,7 +1569,7 @@
             this.videoFormat.Location = new System.Drawing.Point(141, 253);
             this.videoFormat.Name = "videoFormat";
             this.videoFormat.Size = new System.Drawing.Size(153, 20);
-            this.videoFormat.TabIndex = 16;
+            this.videoFormat.TabIndex = 210;
             // 
             // label8
             // 
@@ -1578,7 +1585,7 @@
             this.videoCameraName.Location = new System.Drawing.Point(141, 227);
             this.videoCameraName.Name = "videoCameraName";
             this.videoCameraName.Size = new System.Drawing.Size(153, 20);
-            this.videoCameraName.TabIndex = 14;
+            this.videoCameraName.TabIndex = 209;
             // 
             // videoTake
             // 
@@ -1590,7 +1597,7 @@
             0});
             this.videoTake.Name = "videoTake";
             this.videoTake.Size = new System.Drawing.Size(153, 20);
-            this.videoTake.TabIndex = 13;
+            this.videoTake.TabIndex = 208;
             this.videoTake.Value = new decimal(new int[] {
             1,
             0,
@@ -1616,7 +1623,7 @@
             0});
             this.videoShot.Name = "videoShot";
             this.videoShot.Size = new System.Drawing.Size(153, 20);
-            this.videoShot.TabIndex = 11;
+            this.videoShot.TabIndex = 207;
             this.videoShot.Value = new decimal(new int[] {
             1,
             0,
@@ -1643,7 +1650,7 @@
             0});
             this.videoScene.Name = "videoScene";
             this.videoScene.Size = new System.Drawing.Size(153, 20);
-            this.videoScene.TabIndex = 9;
+            this.videoScene.TabIndex = 206;
             this.videoScene.Value = new decimal(new int[] {
             1,
             0,
@@ -1670,7 +1677,7 @@
             0});
             this.videoNextFileIndex.Name = "videoNextFileIndex";
             this.videoNextFileIndex.Size = new System.Drawing.Size(153, 20);
-            this.videoNextFileIndex.TabIndex = 7;
+            this.videoNextFileIndex.TabIndex = 205;
             this.videoNextFileIndex.Value = new decimal(new int[] {
             1,
             0,
@@ -1701,7 +1708,7 @@
             0});
             this.videoIndexLength.Name = "videoIndexLength";
             this.videoIndexLength.Size = new System.Drawing.Size(153, 20);
-            this.videoIndexLength.TabIndex = 100;
+            this.videoIndexLength.TabIndex = 204;
             this.videoIndexLength.Value = new decimal(new int[] {
             1,
             0,
@@ -1723,7 +1730,7 @@
             this.videoUseBroadcast.Location = new System.Drawing.Point(9, 48);
             this.videoUseBroadcast.Name = "videoUseBroadcast";
             this.videoUseBroadcast.Size = new System.Drawing.Size(173, 17);
-            this.videoUseBroadcast.TabIndex = 3;
+            this.videoUseBroadcast.TabIndex = 202;
             this.videoUseBroadcast.Text = "Use Broadcast camera settings";
             this.videoUseBroadcast.UseVisualStyleBackColor = true;
             this.videoUseBroadcast.CheckedChanged += new System.EventHandler(this.VideoUseBroadcast_CheckedChanged);
@@ -1734,7 +1741,7 @@
             this.videoUseSceneShotTake.Location = new System.Drawing.Point(9, 25);
             this.videoUseSceneShotTake.Name = "videoUseSceneShotTake";
             this.videoUseSceneShotTake.Size = new System.Drawing.Size(201, 17);
-            this.videoUseSceneShotTake.TabIndex = 2;
+            this.videoUseSceneShotTake.TabIndex = 201;
             this.videoUseSceneShotTake.Text = "Use \"Scene - Shot - Take\" filenames";
             this.videoUseSceneShotTake.UseVisualStyleBackColor = true;
             this.videoUseSceneShotTake.CheckedChanged += new System.EventHandler(this.VideoUseSceneShotTake_CheckedChanged);
@@ -1753,7 +1760,7 @@
             this.videoNamePrefix.Location = new System.Drawing.Point(141, 71);
             this.videoNamePrefix.Name = "videoNamePrefix";
             this.videoNamePrefix.Size = new System.Drawing.Size(153, 20);
-            this.videoNamePrefix.TabIndex = 0;
+            this.videoNamePrefix.TabIndex = 203;
             // 
             // groupBox1
             // 
@@ -1773,7 +1780,7 @@
             this.usePhotometrics.Location = new System.Drawing.Point(6, 74);
             this.usePhotometrics.Name = "usePhotometrics";
             this.usePhotometrics.Size = new System.Drawing.Size(117, 17);
-            this.usePhotometrics.TabIndex = 28;
+            this.usePhotometrics.TabIndex = 101;
             this.usePhotometrics.Text = "Using Photometrics";
             this.usePhotometrics.UseVisualStyleBackColor = true;
             // 
@@ -1791,7 +1798,7 @@
             this.projectName.Location = new System.Drawing.Point(6, 41);
             this.projectName.Name = "projectName";
             this.projectName.Size = new System.Drawing.Size(288, 20);
-            this.projectName.TabIndex = 0;
+            this.projectName.TabIndex = 100;
             // 
             // tabPageVideo
             // 
@@ -1856,13 +1863,6 @@
             this.webslateTimer.Enabled = true;
             this.webslateTimer.Interval = 500;
             this.webslateTimer.Tick += new System.EventHandler(this.WebslateTimer_Tick);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(211, 22);
-            this.toolStripMenuItem4.Text = "Open in browser...";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // Form1
             // 

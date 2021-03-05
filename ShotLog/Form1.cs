@@ -11,6 +11,10 @@ using System.Windows.Forms;
 using System.Threading;
 
 
+using System.Reflection;
+using System.Security.Principal;
+
+
 namespace ShotLog
 {
     public partial class Form1 : Form
@@ -18,9 +22,6 @@ namespace ShotLog
         ProjectData data = new ProjectData();
 
         bool exposurePopupOpenFlag = false;
-
-
-
 
         public Form1()
         {
@@ -42,7 +43,7 @@ namespace ShotLog
         //UPDATE GUI FROM DATA OBJECT
         private void LoadGUIfromData()
         {
-            this.Text = (data.projectName + " - ShotLog");
+            this.Text = (data.projectName + " - ShotLog 1.1.0.1");
             projectName.Text = data.projectName;
             usePhotometrics.Checked = data.photometricDataEnabled;
 
@@ -491,16 +492,41 @@ namespace ShotLog
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadGUIfromData();
+            StartWebslate();
+        }
 
+        private void StartWebslate()
+        {
+            if (!IsRunAsAdmin())
+            {
+                //MessageBox.Show("ShotLog requires to RUN AS ADMINISTRATOR for the WebSlate feature to be used. To start the WebSlate-server, quit the application and relaunch as administrator.", "Administrator rights required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            //new Task(() => { WebSlate.SimpleListenerExample(data); }).Start();
-            //new Task(() => { WebSlate.RunServer(data); }).Start();
-            //WebSlate.RunServer(data);
-            Task.Run(() => WebSlate.RunServer(data));
-            
+                ProcessStartInfo elevated = new ProcessStartInfo(System.Reflection.Assembly.GetEntryAssembly().Location, "run2")
+                {
+                    UseShellExecute = true,
+                    Verb = "runas"
+                };
+                Process.Start(elevated);
+                System.Environment.Exit(0);
 
+            } else
+            {
+                Task.Run(() => WebSlate.RunServer(data));
+            }
+        }
 
-
+        private bool IsRunAsAdmin()
+        {
+            try
+            {
+                WindowsIdentity id = WindowsIdentity.GetCurrent();
+                WindowsPrincipal principal = new WindowsPrincipal(id);
+                return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void NewExposureButton_Click(object sender, EventArgs e)
@@ -669,7 +695,7 @@ namespace ShotLog
             SetWebslateSettings();
         }
 
-        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem4_Click(object sender, EventArgs e)
         {
             OpenInBrowser(("http://localhost:" + data.webslatePort));
         }

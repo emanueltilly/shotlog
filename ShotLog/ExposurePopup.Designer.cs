@@ -98,7 +98,7 @@
             this.notesBox2.Location = new System.Drawing.Point(16, 73);
             this.notesBox2.Name = "notesBox2";
             this.notesBox2.Size = new System.Drawing.Size(625, 20);
-            this.notesBox2.TabIndex = 3;
+            this.notesBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.notesBox3.Location = new System.Drawing.Point(16, 113);
             this.notesBox3.Name = "notesBox3";
             this.notesBox3.Size = new System.Drawing.Size(625, 20);
-            this.notesBox3.TabIndex = 5;
+            this.notesBox3.TabIndex = 3;
             // 
             // label3
             // 
@@ -130,7 +130,7 @@
             this.notesBox4.Location = new System.Drawing.Point(16, 152);
             this.notesBox4.Name = "notesBox4";
             this.notesBox4.Size = new System.Drawing.Size(625, 20);
-            this.notesBox4.TabIndex = 7;
+            this.notesBox4.TabIndex = 4;
             // 
             // label4
             // 
@@ -147,7 +147,7 @@
             this.videoEnabledButton.Location = new System.Drawing.Point(16, 238);
             this.videoEnabledButton.Name = "videoEnabledButton";
             this.videoEnabledButton.Size = new System.Drawing.Size(300, 78);
-            this.videoEnabledButton.TabIndex = 8;
+            this.videoEnabledButton.TabIndex = 51;
             this.videoEnabledButton.Text = "videoEnabledButton";
             this.videoEnabledButton.UseVisualStyleBackColor = true;
             this.videoEnabledButton.Click += new System.EventHandler(this.VideoEnabledButton_Click);
@@ -158,7 +158,7 @@
             this.stillsEnabledButton.Location = new System.Drawing.Point(341, 238);
             this.stillsEnabledButton.Name = "stillsEnabledButton";
             this.stillsEnabledButton.Size = new System.Drawing.Size(300, 78);
-            this.stillsEnabledButton.TabIndex = 9;
+            this.stillsEnabledButton.TabIndex = 52;
             this.stillsEnabledButton.Text = "stillsEnabledButton";
             this.stillsEnabledButton.UseVisualStyleBackColor = true;
             this.stillsEnabledButton.Click += new System.EventHandler(this.StillsEnabledButton_Click);
@@ -168,7 +168,7 @@
             this.notesBox5.Location = new System.Drawing.Point(16, 194);
             this.notesBox5.Name = "notesBox5";
             this.notesBox5.Size = new System.Drawing.Size(625, 20);
-            this.notesBox5.TabIndex = 11;
+            this.notesBox5.TabIndex = 5;
             // 
             // label5
             // 
@@ -185,7 +185,7 @@
             this.commitShotButton.Location = new System.Drawing.Point(16, 584);
             this.commitShotButton.Name = "commitShotButton";
             this.commitShotButton.Size = new System.Drawing.Size(625, 78);
-            this.commitShotButton.TabIndex = 12;
+            this.commitShotButton.TabIndex = 54;
             this.commitShotButton.Text = "Commit (Enter)";
             this.commitShotButton.UseVisualStyleBackColor = true;
             this.commitShotButton.Click += new System.EventHandler(this.CommitShotButton_Click);
@@ -290,7 +290,7 @@
             0});
             this.dimmerBox.Name = "dimmerBox";
             this.dimmerBox.Size = new System.Drawing.Size(180, 20);
-            this.dimmerBox.TabIndex = 42;
+            this.dimmerBox.TabIndex = 12;
             this.dimmerBox.Value = new decimal(new int[] {
             1,
             0,
@@ -316,7 +316,7 @@
             0});
             this.zoomBox.Name = "zoomBox";
             this.zoomBox.Size = new System.Drawing.Size(180, 20);
-            this.zoomBox.TabIndex = 40;
+            this.zoomBox.TabIndex = 11;
             this.zoomBox.Value = new decimal(new int[] {
             1,
             0,
@@ -342,7 +342,7 @@
             0});
             this.criBox.Name = "criBox";
             this.criBox.Size = new System.Drawing.Size(180, 20);
-            this.criBox.TabIndex = 38;
+            this.criBox.TabIndex = 10;
             this.criBox.Value = new decimal(new int[] {
             1,
             0,
@@ -368,7 +368,7 @@
             0});
             this.kelvinBox.Name = "kelvinBox";
             this.kelvinBox.Size = new System.Drawing.Size(180, 20);
-            this.kelvinBox.TabIndex = 36;
+            this.kelvinBox.TabIndex = 9;
             this.kelvinBox.Value = new decimal(new int[] {
             1,
             0,
@@ -394,7 +394,7 @@
             0});
             this.distanceBox.Name = "distanceBox";
             this.distanceBox.Size = new System.Drawing.Size(180, 20);
-            this.distanceBox.TabIndex = 34;
+            this.distanceBox.TabIndex = 8;
             this.distanceBox.Value = new decimal(new int[] {
             1,
             0,
@@ -420,7 +420,7 @@
             0});
             this.luxBox.Name = "luxBox";
             this.luxBox.Size = new System.Drawing.Size(180, 20);
-            this.luxBox.TabIndex = 32;
+            this.luxBox.TabIndex = 7;
             this.luxBox.Value = new decimal(new int[] {
             1,
             0,
@@ -432,7 +432,7 @@
             this.fixtureBox.Location = new System.Drawing.Point(9, 36);
             this.fixtureBox.Name = "fixtureBox";
             this.fixtureBox.Size = new System.Drawing.Size(285, 20);
-            this.fixtureBox.TabIndex = 21;
+            this.fixtureBox.TabIndex = 6;
             // 
             // label13
             // 
@@ -470,10 +470,10 @@
             this.saveNoCommitButton.Location = new System.Drawing.Point(341, 531);
             this.saveNoCommitButton.Name = "saveNoCommitButton";
             this.saveNoCommitButton.Size = new System.Drawing.Size(300, 38);
-            this.saveNoCommitButton.TabIndex = 45;
+            this.saveNoCommitButton.TabIndex = 53;
             this.saveNoCommitButton.Text = "Save data without commit";
             this.saveNoCommitButton.UseVisualStyleBackColor = true;
-            this.saveNoCommitButton.Click += new System.EventHandler(this.saveNoCommitButton_Click);
+            this.saveNoCommitButton.Click += new System.EventHandler(this.SaveNoCommitButton_Click);
             // 
             // ExposurePopup
             // 
