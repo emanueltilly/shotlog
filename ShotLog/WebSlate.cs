@@ -12,9 +12,14 @@ namespace ShotLog
 {
     class WebSlate
     {
-       
+        public static ProjectData data = new ProjectData();
 
-        public static void RunServer(ProjectData data)
+        public static void SetDataobject(ProjectData newData)
+        {
+            data = newData;
+        }
+
+        public static void RunServer()
         {
             
 

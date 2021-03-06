@@ -43,7 +43,7 @@ namespace ShotLog
         //UPDATE GUI FROM DATA OBJECT
         private void LoadGUIfromData()
         {
-            this.Text = (data.projectName + " - ShotLog 1.1.0.1");
+            this.Text = (data.projectName + " - ShotLog 1.1.0.2");
             projectName.Text = data.projectName;
             usePhotometrics.Checked = data.photometricDataEnabled;
 
@@ -106,6 +106,8 @@ namespace ShotLog
             webslateFontMenu.Text = data.webslateTextsize.ToString();
             webslateUpdateMenu.Text = data.webslateRefresh.ToString();
             webslatePortMenu.Text = data.webslatePort.ToString();
+
+            WebSlate.SetDataobject(data);
 
 
             //Update enabled
@@ -511,7 +513,8 @@ namespace ShotLog
 
             } else
             {
-                Task.Run(() => WebSlate.RunServer(data));
+                WebSlate.SetDataobject(data);
+                Task.Run(() => WebSlate.RunServer());
             }
         }
 
