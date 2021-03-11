@@ -43,7 +43,7 @@ namespace ShotLog
         //UPDATE GUI FROM DATA OBJECT
         private void LoadGUIfromData()
         {
-            this.Text = (data.projectName + " - ShotLog 1.1.0.2");
+            this.Text = (data.projectName + " - ShotLog 1.1.0.3");
             projectName.Text = data.projectName;
             usePhotometrics.Checked = data.photometricDataEnabled;
 

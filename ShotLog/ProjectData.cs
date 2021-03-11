@@ -517,12 +517,12 @@ namespace ShotLog
                         case "0-+":
                             Console.WriteLine("Bracket order: " + stillsBracketOrder);
                             exposureNames[0] = "Normal";
-                            exposureNames[1] = (stillsBracketSteps.ToString() + " stop over");
-                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop under");
+                            exposureNames[2] = (stillsBracketSteps.ToString() + " stop over");
+                            exposureNames[1] = (stillsBracketSteps.ToString() + " stop under");
 
                             exposureSteps[0] = stillsShutterspeedBase;
-                            exposureSteps[2] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
-                            exposureSteps[1] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
+                            exposureSteps[1] = (stillsShutterspeedBase * (stillsBracketSteps * 2));
+                            exposureSteps[2] = (RecursiveDivision(stillsShutterspeedBase, stillsBracketSteps));
                             break;
 
                         case "-0+":
